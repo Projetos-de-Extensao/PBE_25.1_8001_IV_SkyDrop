@@ -8,7 +8,7 @@
 | -- | -- |
 | 202304077754  |  Pedro Henrique Abdalla Ramos |
 | 202407138829  |  Nicholas Borges de Vasconcelos |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 202301134358  |  Alex Euzébio Pereira Dias de Oliveira |
 | xx/xxxxxx  |  xxxx xxxx xxxxx |
 | xx/xxxxxx  |  xxxx xxxx xxxxx |
 
