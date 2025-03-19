@@ -1,6 +1,6 @@
 # Projeto de acessibilidade de entregas Ilha Primeira
 
-**Número do Grupo**: 4<br>
+**Número do Grupo**: 5<br>
 **Código da Disciplina**: FGA0208-T01<br>
 
 ## Alunos
@@ -13,7 +13,10 @@
 | xx/xxxxxx  |  xxxx xxxx xxxxx |
 
 ## Sobre 
-Projeto Back-and 2025.1 
+Na disciplina de Projeto Back-End 2025.1, desenvolveremos um projeto para solucionar o problema de acessibilidade nas entregas para a Ilha Primeira. Atualmente, a única forma de transporte de mercadorias é por meio de contêineres, o que torna as entregas caras e pouco acessíveis para o público em geral.
+
+Nossa missão é criar uma solução inovadora que reduza custos e melhore a acessibilidade das entregas, utilizando uma aplicação e um sistema operacional desenvolvidos especificamente para essa necessidade.
+
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em termos de interface e funcionamento.
 
