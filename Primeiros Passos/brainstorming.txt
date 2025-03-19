@@ -1,0 +1,9 @@
+Ilha Primeira- Projeto de acessibilidade de ifood- Back end
+
+- acesso somente por embarcações 
+- píer mais próximo à direita da ilha (perro da estrada da barra)
+- logística de entrega para o píer 
+- receptação de entregas dentro da ilha para assim entregar ao remetente
+-  viabilizar entrega com dois entregadores( um fora da ilha e outro dentro)
+ - entregas de drone
+ - parceria com o ilha delivery (logística pronta de entregas para todas as casa) 
