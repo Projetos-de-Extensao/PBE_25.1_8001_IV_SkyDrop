@@ -6,11 +6,11 @@
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| 202304077754  |  Pedro Henrique Abdalla Ramos |
-| 202407138829  |  Nicholas Borges de Vasconcelos |
-| 202301134358  |  Alex Euzébio Pereira Dias de Oliveira |
+| 202304077754 |  Pedro Henrique Abdalla Ramos |
+| 202407138829 |  Nicholas Borges de Vasconcelos |
+| 202301134358 |  Alex Euzébio Pereira Dias de Oliveira |
 | 202302855458 |  Gabriel Mendonça de Medeiros |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 202402627295 |  Gabriel Maia Sampaio |
 
 ## Sobre 
 Na disciplina de Projeto Back-End 2025.1, desenvolveremos um projeto para solucionar o problema de acessibilidade nas entregas para a Ilha Primeira. Atualmente, a única forma de transporte de mercadorias é por meio de contêineres, o que torna as entregas caras e pouco acessíveis para o público em geral.
