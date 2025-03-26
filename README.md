@@ -21,9 +21,9 @@ Nossa missão é criar uma solução inovadora que reduza custos e melhore a ace
 Adicione 3 ou mais screenshots do projeto em termos de interface e funcionamento.
 
 ## Instalação 
-**Linguagens**: Python, Django
-**Tecnologias**: Github, Visual Studio Code
-os pré-requisitos para rodar o projeto são UX, Engenharia de Dados, POO.
+**Linguagens**: Python, Django<br>
+**Tecnologias**: Github, Visual Studio Code<br>
+ os pré-requisitos para rodar o projeto são UX, Engenharia de Dados, POO.
 
 ## Uso 
 Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
