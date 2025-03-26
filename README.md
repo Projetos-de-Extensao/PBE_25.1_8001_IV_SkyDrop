@@ -21,10 +21,9 @@ Nossa missão é criar uma solução inovadora que reduza custos e melhore a ace
 Adicione 3 ou mais screenshots do projeto em termos de interface e funcionamento.
 
 ## Instalação 
-**Linguagens**: xxxxxx<br>
-**Tecnologias**: xxxxxx<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
+**Linguagens**: Python, Django
+**Tecnologias**: Github, Visual Studio Code
+os pré-requisitos para rodar o projeto são UX, Engenharia de Dados, POO.
 
 ## Uso 
 Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
