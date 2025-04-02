@@ -1,43 +1,38 @@
-site_name: Acessibilidade de Entregas – Ilha Primeira
-site_description: Projeto de solução logística e digital para viabilizar entregas na Ilha Primeira (RJ)
-site_author: Seu Nome ou Equipe
-repo_name: github.com/seuusuario/ilha-primeira-logistica
-repo_url: https://github.com/seuusuario/ilha-primeira-logistica
-
-nav:
-  - Início: index.md
-  - Sobre o Projeto:
-      - Visão Geral: visao_geral.md
-      - Logística e Entregas: logistica.md
-  - Sistema:
-      - Arquitetura: arquitetura.md
-      - API (Back-end): api.md
-      - Banco de Dados: banco_dados.md
-      - Tecnologias: tecnologias.md
-  - Como Usar:
-      - Instalação e Deploy: instalacao.md
-      - Contribuição: contribuicao.md
-  - Suporte:
-      - FAQ: faq.md
+site_name: Ilha Primeira - Documentação
+site_url: https://<SEU_USUARIO>.github.io/<SEU_REPOSITORIO>  # Altere isso!
+repo_url: https://github.com/<SEU_USUARIO>/<SEU_REPOSITORIO>
+repo_name: GitHub
 
 theme:
   name: material
-  language: pt
+  language: pt-BR
+  palette:
+    scheme: default
+    primary: blue
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
   features:
-    - navigation.tabs
     - navigation.top
-    - content.code.copy
-    - content.action.edit
+    - navigation.tabs
+    - search.highlight
+    - search.suggest
+    - toc.integrate
+
+nav:
+  - Início: index.md
+  - Documentação:
+      - Brainstorm: docs/brainstorm.md
+      - 5W2H: docs/5w2h.md
+      - Requisitos: docs/requisitos.md
 
 markdown_extensions:
-  - toc:
-      permalink: true
-  - tables
   - admonition
   - codehilite
-  - footnotes
-  - meta
-  - pymdownx.details
+  - toc:
+      permalink: true
   - pymdownx.superfences
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
+  - pymdownx.emoji
+  - pymdownx.details
+  - pymdownx.tabbed
