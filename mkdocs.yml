@@ -1,1 +1,43 @@
-site_name: PBE_25.1_8001_IV
+site_name: Acessibilidade de Entregas – Ilha Primeira
+site_description: Projeto de solução logística e digital para viabilizar entregas na Ilha Primeira (RJ)
+site_author: Seu Nome ou Equipe
+repo_name: github.com/seuusuario/ilha-primeira-logistica
+repo_url: https://github.com/seuusuario/ilha-primeira-logistica
+
+nav:
+  - Início: index.md
+  - Sobre o Projeto:
+      - Visão Geral: visao_geral.md
+      - Logística e Entregas: logistica.md
+  - Sistema:
+      - Arquitetura: arquitetura.md
+      - API (Back-end): api.md
+      - Banco de Dados: banco_dados.md
+      - Tecnologias: tecnologias.md
+  - Como Usar:
+      - Instalação e Deploy: instalacao.md
+      - Contribuição: contribuicao.md
+  - Suporte:
+      - FAQ: faq.md
+
+theme:
+  name: material
+  language: pt
+  features:
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
