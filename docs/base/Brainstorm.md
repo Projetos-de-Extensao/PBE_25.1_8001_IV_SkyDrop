@@ -147,4 +147,4 @@ Através da aplicação da técnica, foi possível elicitar alguns dos primeiros
 
 | Data | Versão | Descrição | Autor(es) |
 | -- | -- | -- | -- |
-| 01/04/2025 | 1.0 | Criação do documento | João Carvalho, XXXX XXXX, YYYY YYYY, ZZZZ ZZZZ |
+| 01/04/2025 | 1.0 | Criação do documento | Gabriel Maia, Gabriel Mendonça, Alex Euzébio, Nicholas Borges, Pedro Henrique |
