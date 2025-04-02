@@ -18,7 +18,7 @@ Na disciplina de Projeto Back-End 2025.1, desenvolveremos um projeto para soluci
 Nossa missão é criar uma solução inovadora que reduza custos e melhore a acessibilidade das entregas, utilizando uma aplicação e um sistema operacional desenvolvidos especificamente para essa necessidade.
 
 ## Planejamento do Projeto
-Acesse o documento 5W2H para entender o escopo e os objetivos:  [📄 Ver 5W2H](./docs/5w2h.md)
+Acesse o documento 5W2H para entender o escopo e os objetivos:  [📄 Ver 5W2H](docs/base/5w2h.md)
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em termos de interface e funcionamento.
