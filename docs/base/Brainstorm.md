@@ -22,15 +22,15 @@ A equipe se reuniu para debater ideias gerais sobre o projeto via reunião remot
 ### 1. Qual o objetivo principal da aplicação?
 
 <p align="justify">
-<b>XXXX</b> - Permitir que moradores da Ilha Primeira possam receber pedidos via iFood, superando a limitação de acesso por terra.
+<b>Pedro Henrique</b> - Permitir que moradores da Ilha Primeira possam receber pedidos via iFood, superando a limitação de acesso por terra.
 </p>
 
 <p align="justify">
-<b>YYYY</b> - Integrar a estrutura logística existente na ilha com a plataforma iFood, otimizando a experiência do usuário.
+<b>Gabriel Maia</b> - Integrar a estrutura logística existente na ilha com a plataforma iFood, otimizando a experiência do usuário.
 </p>
 
 <p align="justify">
-<b>ZZZZ</b> - Criar um fluxo de entrega híbrido, envolvendo entregadores no continente e na ilha, além de tecnologias emergentes como drones.
+<b>Nicholas Borges</b> - Criar um fluxo de entrega híbrido, envolvendo entregadores no continente e na ilha, além de tecnologias emergentes como drones.
 </p>
 
 ---
@@ -38,15 +38,15 @@ A equipe se reuniu para debater ideias gerais sobre o projeto via reunião remot
 ### 2. Quais desafios logísticos precisam ser superados?
 
 <p align="justify">
-<b>XXXX</b> - O único acesso à ilha é via embarcações, tornando a logística dependente das condições climáticas.
+<b>Alex Euzébio</b> - O único acesso à ilha é via embarcações, tornando a logística dependente das condições climáticas.
 </p>
 
 <p align="justify">
-<b>YYYY</b> - A sincronização entre os entregadores do continente e da ilha exige planejamento e comunicação eficientes.
+<b>Pedro Henrique</b> - A sincronização entre os entregadores do continente e da ilha exige planejamento e comunicação eficientes.
 </p>
 
 <p align="justify">
-<b>ZZZZ</b> - Garantir segurança e rastreabilidade no ponto de transbordo (píer) é fundamental para evitar perdas.
+<b>Gabriel Mendonça</b> - Garantir segurança e rastreabilidade no ponto de transbordo (píer) é fundamental para evitar perdas.
 </p>
 
 ---
@@ -54,15 +54,15 @@ A equipe se reuniu para debater ideias gerais sobre o projeto via reunião remot
 ### 3. Quais soluções podem ser implementadas para viabilizar as entregas?
 
 <p align="justify">
-<b>XXXX</b> - Implementar um sistema de dois entregadores: um que leve os pedidos até o píer e outro que faça a entrega dentro da ilha.
+<b>Alex Euzébio</b> - Implementar um sistema de dois entregadores: um que leve os pedidos até o píer e outro que faça a entrega dentro da ilha.
 </p>
 
 <p align="justify">
-<b>YYYY</b> - Utilizar drones para entregas diretas em regiões mais afastadas da ilha.
+<b>Alex Euzébio</b> - Utilizar drones para entregas diretas em regiões mais afastadas da ilha.
 </p>
 
 <p align="justify">
-<b>ZZZZ</b> - Estabelecer parceria com o serviço "Ilha Delivery", que já opera na região, aproveitando sua estrutura.
+<b>Gabriel Maia</b> - Estabelecer parceria com o serviço "Ilha Delivery", que já opera na região, aproveitando sua estrutura.
 </p>
 
 ---
@@ -70,15 +70,15 @@ A equipe se reuniu para debater ideias gerais sobre o projeto via reunião remot
 ### 4. Quais tecnologias podem auxiliar no processo?
 
 <p align="justify">
-<b>XXXX</b> - Sistema de geolocalização para mapeamento detalhado das residências da ilha.
+<b>Gabriel Mendonça</b> - Sistema de geolocalização para mapeamento detalhado das residências da ilha.
 </p>
 
 <p align="justify">
-<b>YYYY</b> - Aplicativo para rastreamento das entregas e comunicação entre os entregadores.
+<b>Gabriel Mendonça</b> - Aplicativo para rastreamento das entregas e comunicação entre os entregadores.
 </p>
 
 <p align="justify">
-<b>ZZZZ</b> - Integração entre a API do iFood e a do parceiro logístico local.
+<b>Pedro Henrique</b> - Integração entre a API do iFood e a do parceiro logístico local.
 </p>
 
 ---
@@ -86,15 +86,15 @@ A equipe se reuniu para debater ideias gerais sobre o projeto via reunião remot
 ### 5. Quais são os próximos passos para a implementação?
 
 <p align="justify">
-<b>XXXX</b> - Realizar mapeamento técnico da ilha e levantamento das rotas viáveis.
+<b>Gabriel Maia</b> - Realizar mapeamento técnico da ilha e levantamento das rotas viáveis.
 </p>
 
 <p align="justify">
-<b>YYYY</b> - Entrar em contato com representantes do "Ilha Delivery" e iniciar tratativas com o iFood.
+<b>Gabriel Mendonça</b> - Entrar em contato com representantes do "Ilha Delivery" e iniciar tratativas com o iFood.
 </p>
 
 <p align="justify">
-<b>ZZZZ</b> - Desenvolver um MVP e testar o fluxo com entregas simuladas ou reais em pequena escala.
+<b>Nicholas Borges</b> - Desenvolver um MVP e testar o fluxo com entregas simuladas ou reais em pequena escala.
 </p>
 
 ---
@@ -102,23 +102,23 @@ A equipe se reuniu para debater ideias gerais sobre o projeto via reunião remot
 ### 6. Quais informações seriam interessantes para o cliente?
 
 <p align="justify">
-<b>XXXX</b> - Informações sobre o tempo estimado de chegada do pedido, considerando a logística com transbordo e clima.
+<b>Gabriel Mendonça</b> - Informações sobre o tempo estimado de chegada do pedido, considerando a logística com transbordo e clima.
 </p>
 
 <p align="justify">
-<b>YYYY</b> - A localização atual do pedido (rastreamento em tempo real ou por etapas: restaurante → píer → entrega).
+<b>Alex Euzébio</b> - A localização atual do pedido (rastreamento em tempo real ou por etapas: restaurante → píer → entrega).
 </p>
 
 <p align="justify">
-<b>ZZZZ</b> - Nome do entregador responsável pela etapa na ilha, para facilitar o contato em caso de dúvidas.
+<b>Alex Euzébio</b> - Nome do entregador responsável pela etapa na ilha, para facilitar o contato em caso de dúvidas.
 </p>
 
 <p align="justify">
-<b>WWWW</b> - Notificações sobre atrasos por conta de maré, chuva ou ventos, com base em dados climáticos.
+<b>Nicholas Borges</b> - Notificações sobre atrasos por conta de maré, chuva ou ventos, com base em dados climáticos.
 </p>
 
 <p align="justify">
-<b>KKKK</b> - Confirmação de entrega visual (foto do pacote entregue ou assinatura digital).
+<b>Pedro Henrique</b> - Confirmação de entrega visual (foto do pacote entregue ou assinatura digital).
 </p>
 
 ---
