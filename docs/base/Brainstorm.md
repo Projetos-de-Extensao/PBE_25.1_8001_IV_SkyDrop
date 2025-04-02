@@ -19,16 +19,6 @@ A equipe se reuniu para debater ideias gerais sobre o projeto via reunião remot
 
 ## Perguntas
 
-1. Qual o objetivo principal da aplicação?  
-2. Quais desafios logísticos precisam ser superados?  
-3. Quais soluções podem ser implementadas para viabilizar as entregas?  
-4. Quais tecnologias podem auxiliar no processo?  
-5. Quais são os próximos passos para a implementação?  
-6. Quais informações seriam interessantes para o cliente?
-
-
-## Perguntas
-
 ### 1. Qual o objetivo principal da aplicação?
 
 <p align="justify">
