@@ -27,6 +27,7 @@ mindmapDiagram {
 ***[#lightgreen] Divisão de entrega em duas etapas:
 ****[#lightgreen] Entrega 1 de drone ate píer
 ****[#lightgreen] Entrega 2 de píer ate morador
+****[#lightgreen] Criar um fluxo de entrega híbrido
 ***[#lightgreen] Estação de transbordo no píer
 ***[#lightgreen] Entregas de drone
 ****[#lightgreen] Mais rapido
@@ -43,6 +44,10 @@ mindmapDiagram {
 ***[#lightblue] Drones com autonomia controlada 
 ****[#lightblue] Pensar questões legais e ambientais
 ****[#lightblue] App auxiliar para organizar as entregas e status da logística.
+***[#lightblue] Informações para cliente
+****[#lightblue] Rastreamento das entregas e comunicação
+****[#lightblue] Notificações sobre atrasos, (clima)
+****[#lightblue] Confirmação de entrega visual, foto
 
 left side
 
@@ -56,10 +61,13 @@ left side
 
 ** Riscos / Considerações <<Orange>>
 ***[#Orange] Clima pode afetar o transporte
-***[#Orange] Responsabilidade por perdas
 ***[#Orange] Regulamentação ANAC (drone)
 ***[#Orange] Custo inicial alto
+****[#Orange] Responsabilidade por perdas
 ***[#Orange] Segurança no píer
+***[#Orange] Geographia da Ilha
+****[#Orange] Realizar mapeamento técnico da ilha
+
 
 
 
