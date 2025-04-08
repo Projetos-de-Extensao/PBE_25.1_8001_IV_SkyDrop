@@ -9,11 +9,11 @@ Atualmente, existe um contêiner que poderia facilitar as entregas, porém seu a
 </p>
 
 ### Principais soluções possíveis
--Ilha delivery
+- Ilha delivery
 
--Parcerias com Serviços de Transporte Aquaviário Existentes: Colaborar com operadores locais, como o Simão Express, para estabelecer rotas regulares de entrega, aproveitando a infraestrutura já existente e a experiência dos barqueiros na região
+- Parcerias com Serviços de Transporte Aquaviário Existentes: Colaborar com operadores locais, como o Simão Express, para estabelecer rotas regulares de entrega, aproveitando a infraestrutura já existente e a experiência dos barqueiros na região
 
--Implementação de Entregas por Drones: Inspirando-se em iniciativas como a do iFood, que iniciou entregas experimentais por drones no Brasil, propõe-se a utilização de drones para entregas rápidas e de pequeno porte na Ilha Primeira. Essa abordagem pode reduzir significativamente o tempo de entrega e minimizar a dependência exclusiva do transporte aquaviário.
+- Implementação de Entregas por Drones: Inspirando-se em iniciativas como a do iFood, que iniciou entregas experimentais por drones no Brasil, propõe-se a utilização de drones para entregas rápidas e de pequeno porte na Ilha Primeira. Essa abordagem pode reduzir significativamente o tempo de entrega e minimizar a dependência exclusiva do transporte aquaviário.
 
 ### Ideias de inovação
 
@@ -23,13 +23,13 @@ Atualmente, existe um contêiner que poderia facilitar as entregas, porém seu a
 - Rastreamento em Tempo Real por Geolocalização:Permitir que o usuário acompanhe em tempo real o trajeto do entregador (drone ou barco) até o ponto de entrega, com estimativa de tempo e confirmação via app, como o Uber Eats ou iFood, mas adaptado para ilhas.
 
 ### Objetivos do Projeto
--Desenvolvimento de uma plataforma online (aplicativo) para permitir a realização de pedidos de forma simples e acessível.
+- Desenvolvimento de uma plataforma online (aplicativo) para permitir a realização de pedidos de forma simples e acessível.
 
--Otimizar a Logística de Entregas: Integrar o uso de barcos e drones para criar um sistema de entrega eficiente e adaptável às condições locais.​
+- Otimizar a Logística de Entregas: Integrar o uso de barcos e drones para criar um sistema de entrega eficiente e adaptável às condições locais.​
 
--Reduzir o Tempo de Espera: Diminuir o intervalo entre o pedido e a entrega, especialmente para itens essenciais, melhorando a satisfação dos moradores.​
+- Reduzir o Tempo de Espera: Diminuir o intervalo entre o pedido e a entrega, especialmente para itens essenciais, melhorando a satisfação dos moradores.​
 
--Garantir a Segurança e Conformidade: Assegurar que todas as operações estejam em conformidade com as regulamentações vigentes, colaborando com autoridades locais para a regularização dos serviços de transporte.
+- Garantir a Segurança e Conformidade: Assegurar que todas as operações estejam em conformidade com as regulamentações vigentes, colaborando com autoridades locais para a regularização dos serviços de transporte.
 
 ### Conclusão
 
