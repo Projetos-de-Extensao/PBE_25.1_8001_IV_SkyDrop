@@ -13,7 +13,7 @@ A Ilha Primeira, situada na Lagoa da Tijuca, Rio de Janeiro, é uma comunidade q
 
 ### Ideias de inovação
 
-- Entrega por drone
+- Entrega por drone.
 - Drones com Rota Inteligente Compartilhada:Em vez de drones indo direto a cada casa, eles pousariam em estações compartilhadas da ilha (como um “ponto de coleta aéreo”), avisando os moradores via notificação para irem buscar os itens.
 - Lockers Flutuantes:Instalar armários inteligentes em plataformas flutuantes nas margens da ilha. As balsas ou drones entregam ali, e o morador retira com QR code.
 - Rastreamento em Tempo Real por Geolocalização:Permitir que o usuário acompanhe em tempo real o trajeto do entregador (drone ou barco) até o ponto de entrega, com estimativa de tempo e confirmação via app, como o Uber Eats ou iFood, mas adaptado para ilhas.
