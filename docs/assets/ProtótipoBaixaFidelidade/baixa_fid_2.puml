@@ -1,0 +1,32 @@
+@startsalt
+{
+{+
+  <color:green>DroneEntrega
+  <color:white> space
+  Olá, <Usuario>
+  Endereço: Ibmec Sala 305
+  ---------------------------
+  {T 
+    + Inicio
+    ++Restaurants
+    ++Promocoes
+    ++Favoritos
+  }
+  <color:white> space
+  {T 
+    + Últimas Lojas
+    ++Mamma Jamma
+    ++Outback
+    ++Cabana
+  }
+  <color:white> space
+  ---------------------------
+  Pedir de Novo: Outback, R$59.90
+}
+
+[          Busca         ]
+[          Pedidos       ]
+[          Perfil        ]
+[  Sair                  ]
+}
+@endsalt

@@ -1,0 +1,13 @@
+@startsalt
+
+{
+  DroneEntregas - Login
+  .. | ..
+    
+  <&person> Login | "Usuario   "
+  <&key> Senha | "****     "
+  .. | ..
+  [Acessar <&account-login>] | [Cancel <&circle-x>]
+}
+
+@endsalt
