@@ -1,218 +1,143 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Diagrama de Classes - My Docs</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
-
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">My Docs</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Base</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../base/5w2h/" class="dropdown-item">📋 5W2H – Projeto de Acessibilidade de Entregas Ilha Primeira</a>
-</li>
-                                    
-<li>
-    <a href="../../base/Brainstorm/" class="dropdown-item">Brainstorm</a>
-</li>
-                                    
-<li>
-    <a href="../../base/Pesquisa/" class="dropdown-item">Pesquisa</a>
-</li>
-                                    
-<li>
-    <a href="../../base/Requisitos/" class="dropdown-item">Requisitos</a>
-</li>
-                                    
-<li>
-    <a href="../../base/documento_de_visao/" class="dropdown-item">Documento de Visão</a>
-</li>
-                                    
-<li>
-    <a href="../../base/entrevista/" class="dropdown-item">Entrevista</a>
-</li>
-                                    
-<li>
-    <a href="../../base/mapa_mental/" class="dropdown-item">Mapas Mentais</a>
-</li>
-                                    
-<li>
-    <a href="../../base/metodologia/" class="dropdown-item">Metodologia</a>
-</li>
-                                    
-<li>
-    <a href="../../base/prototipo_alta_fidelidade/" class="dropdown-item">Protótipo</a>
-</li>
-                                    
-<li>
-    <a href="../../base/prototipo_baixa_fidelidade/" class="dropdown-item">Prototipo baixa fidelidade</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Interacao</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../interacao/interacao1/" class="dropdown-item">Interação 1</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Modelagem</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../" class="dropdown-item">Modelagem</a>
-</li>
-                                    
-<li>
-    <a href="../das/" class="dropdown-item">Documento de Arquitetura</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">Diagrama de Classes</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Util</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../util/doc_template/" class="dropdown-item">Titulo do documento</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../das/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../../util/doc_template/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="PBE_25.1_8001_IV" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Diagrama de Classes - Grupo 4 - Projeto DroneEntrega</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#nao-precisa-entregar-para-a-ap1" class="nav-link">Não precisa entregar para a AP1</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#introducao" class="nav-link">Introdução</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#metodologia" class="nav-link">Metodologia</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#entregue-no-proximo-incremento" class="nav-link">ENTREGUE NO PRÓXIMO INCREMENTO</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#diagrama-de-classes" class="nav-link">Diagrama de Classes</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#conclusao" class="nav-link">Conclusão</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#referencias" class="nav-link">Referências</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#autores" class="nav-link">Autor(es)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Diagrama de Classes";
+        var mkdocs_page_input_path = "modelagem\\diagrama_de_classes.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
 
-<h1 id="nao-precisa-entregar-para-a-ap1">Não precisa entregar para a AP1</h1>
-<h2 id="introducao">Introdução</h2>
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Grupo 4 - Projeto DroneEntrega
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Projeto DroneEntrega</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Base</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../base/5w2h/">5W2H</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../base/Brainstorm/">Brainstorm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../base/Pesquisa/">Pesquisa</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../base/Requisitos/">Requisitos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../base/documento_de_visao/">Documento de Visão</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../base/entrevista/">Entrevista</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../base/mapa_mental/">Mapas Mentais</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../base/metodologia/">Metodologia</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../base/prototipo_alta_fidelidade/">Protótipo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../base/prototipo_baixa_fidelidade/">Prototipo baixa fidelidade</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Interacao</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../interacao/interacao1/">Interação 1</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modelagem</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Modelagem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../das/">Documento de Arquitetura</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Diagrama de Classes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introducao">Introdução</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#metodologia">Metodologia</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Util</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../util/doc_template/">Titulo do documento</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Grupo 4 - Projeto DroneEntrega</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Modelagem</li>
+      <li class="breadcrumb-item active">Diagrama de Classes</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Projetos-de-Extensao/PBE_25.1_8001_IV/edit/master/docs/modelagem/diagrama_de_classes.md">Edit on PBE_25.1_8001_IV</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="nao-precisa-entregar-para-a-ap1">Não precisa entregar para a AP1<a class="headerlink" href="#nao-precisa-entregar-para-a-ap1" title="Permanent link">&para;</a></h1>
+<h2 id="introducao">Introdução<a class="headerlink" href="#introducao" title="Permanent link">&para;</a></h2>
 <p align = "justify">
 O diagrama de classes UML é um diagrama que mostra a estrutura do sistema desenhado no nível de classes e interfaces, ilustra as funcionalidades, dependências e relacionamentos de cada elemento. Pode ser vista como uma representação visual da arquitetura de um sistema. 
 </p>
 
-<h2 id="metodologia">Metodologia</h2>
+<h2 id="metodologia">Metodologia<a class="headerlink" href="#metodologia" title="Permanent link">&para;</a></h2>
 <p align = "justify">
 A equipe se reuniu por .... e realizou um brainstorm onde foram dicutidos os tópicos chaves e a arquitetura geral dos sistemas, e assim criamos...
 
 Para a criação da primeira versão do diagrama de classes, a equipe utilizou o programa... Além disso, foi utilizado... para videoconferência e Visual Studio Code / Live Share para elaboração da documentação.
 </p>
 
-<h1 id="entregue-no-proximo-incremento">ENTREGUE NO PRÓXIMO INCREMENTO</h1>
-<h2 id="diagrama-de-classes">Diagrama de Classes</h2>
-<h3 id="versao-10">Versão 1.0</h3>
+<h1 id="entregue-no-proximo-incremento">ENTREGUE NO PRÓXIMO INCREMENTO<a class="headerlink" href="#entregue-no-proximo-incremento" title="Permanent link">&para;</a></h1>
+<h2 id="diagrama-de-classes">Diagrama de Classes<a class="headerlink" href="#diagrama-de-classes" title="Permanent link">&para;</a></h2>
+<h3 id="versao-10">Versão 1.0<a class="headerlink" href="#versao-10" title="Permanent link">&para;</a></h3>
 <p><img alt="![Diagrama de Classes](../assets/diagrama_de_classes/diagrama_de_classes.png)" src="../assets/diagrama_de_classes/diagrama_de_classes.png" /></p>
-<h3 id="versao-11">Versão 1.1</h3>
+<h3 id="versao-11">Versão 1.1<a class="headerlink" href="#versao-11" title="Permanent link">&para;</a></h3>
 <p><img alt="![Diagrama de Classes](../assets/diagrama_de_classes/diagrama_de_classes_1.1.png)" src="../assets/diagrama_de_classes/diagrama_de_classes_1.1.png" /></p>
-<h3 id="versao-20">Versão 2.0</h3>
+<h3 id="versao-20">Versão 2.0<a class="headerlink" href="#versao-20" title="Permanent link">&para;</a></h3>
 <p><img alt="![Diagrama de Classes](../assets/diagrama_de_classes/diagrama_de_classes_1.1.png)" src="../assets/diagrama_de_classes/diagrama_de_classes_2.0.png" /></p>
-<h4 id="rastreabilidade-de-requisitos">Rastreabilidade de Requisitos</h4>
+<h4 id="rastreabilidade-de-requisitos">Rastreabilidade de Requisitos<a class="headerlink" href="#rastreabilidade-de-requisitos" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -239,18 +164,18 @@ Para a criação da primeira versão do diagrama de classes, a equipe utilizou o
 </tr>
 </tbody>
 </table>
-<h2 id="conclusao">Conclusão</h2>
+<h2 id="conclusao">Conclusão<a class="headerlink" href="#conclusao" title="Permanent link">&para;</a></h2>
 <p align = "justify">
 Através do diagrama de classes, foi possível representar a estrutura do sistema a nível de classes e auxiliar na modelagem da arquitetura geral, além do banco de dados. Ao longo do desenvolvimento da disciplina, iremos adaptar e evoluir o diagrama e sua documentação para refletir no estado atual do projeto.
 </p>
 
-<h2 id="referencias">Referências</h2>
+<h2 id="referencias">Referências<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>UML Class and Object Diagrams Overview. Disponível em https://www.uml-diagrams.org/class-diagrams-overview.html. Acesso em 21/09/20</p>
 <p>UML Class Diagram Tutorial. Disponível em https://www.youtube.com/watch?v=UI6lqHOVHic. Acesso em 21/09/20</p>
 <p>UML Class Relationship Diagrams. Disponível em https://www.cs.odu.edu/~zeil/cs330/latest/Public/classDiagrams/index.html#other-class-diagram-elements Acesso em 19/10/20</p>
 </blockquote>
-<h2 id="autores">Autor(es)</h2>
+<h2 id="autores">Autor(es)<a class="headerlink" href="#autores" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -286,82 +211,56 @@ Através do diagrama de classes, foi possível representar a estrutura do sistem
 <td>João Pedro, Lucas Alexandre, Matheus Estanislau, Moacir Mascarenha e Renan Cristyan</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+              
             </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../das/" class="btn btn-neutral float-left" title="Documento de Arquitetura"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../util/doc_template/" class="btn btn-neutral float-right" title="Titulo do documento">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
         </div>
-    </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Projetos-de-Extensao/PBE_25.1_8001_IV" class="fa fa-code-fork" style="color: #fcfcfc"> PBE_25.1_8001_IV</a>
+        </span>
+    
+    
+      <span><a href="../das/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../util/doc_template/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
 
-    </body>
+</body>
 </html>
