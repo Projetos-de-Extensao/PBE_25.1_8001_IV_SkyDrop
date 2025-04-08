@@ -37,7 +37,7 @@ Atualmente, existe um contêiner que poderia facilitar as entregas, porém seu a
 A integração de serviços de transporte aquaviário e entregas por drones apresenta uma solução viável para os desafios logísticos enfrentados pela comunidade da Ilha Primeira. Ao aproveitar as infraestruturas existentes e incorporar tecnologias inovadoras, é possível melhorar significativamente a eficiência das entregas, contribuindo para a qualidade de vida dos moradores e promovendo o desenvolvimento sustentável da região.</p>
 
 ### Visualização do mapa na Ilha Primeira
-[![Mapa Ilha Primeira](docs/assets/Mapa_da_Ilha/image.png)
+[!Mapa Ilha Primeira](docs/assets/Mapa_da_Ilha/image.png)
 
 
 | Data       | Versão | Descrição                | Autor(es) |
