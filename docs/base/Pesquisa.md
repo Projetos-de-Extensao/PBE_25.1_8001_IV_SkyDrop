@@ -33,7 +33,6 @@ A Ilha Primeira, situada na Lagoa da Tijuca, Rio de Janeiro, é uma comunidade q
 A integração de serviços de transporte aquaviário e entregas por drones apresenta uma solução viável para os desafios logísticos enfrentados pela comunidade da Ilha Primeira. Ao aproveitar as infraestruturas existentes e incorporar tecnologias inovadoras, é possível melhorar significativamente a eficiência das entregas, contribuindo para a qualidade de vida dos moradores e promovendo o desenvolvimento sustentável da região.</p>
 
 ### Visualização do mapa na Ilha Primeira
-[Mapa Ilha Primeira]
 ![image](https://github.com/user-attachments/assets/b7b76b9d-6ed3-4eea-80f5-d09364bf94b3)
 
 
