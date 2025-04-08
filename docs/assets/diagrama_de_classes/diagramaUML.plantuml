@@ -1,0 +1,57 @@
+@startuml
+
+class Usuario {
+  - id_usuario: int
+  - nome: string
+  - endereco: string
+  - telefone: string
+  - email: string
+  
+  + fazer_pedido(detalhes_pedido)
+  + rastrear_pedido(id_pedido)
+  + atualizar_perfil(novas_infos)
+}
+
+class Restaurante {
+  - id_restaurante: int
+  - nome: string
+  - localizacao: string
+  - cardapio: List<ItemMenu>
+  
+  + preparar_pedido(id_pedido)
+  + atualizar_cardapio(item, acao)
+  + obter_cardapio()
+}
+
+class Drone {
+  - id_drone: int
+  - localizacao_atual: string
+  - nivel_bateria: float
+  - status: string
+  
+  + atribuir_entrega(id_pedido)
+  + atualizar_localizacao(nova_localizacao)
+  + verificar_bateria()
+  + recarregar()
+}
+
+class Pedido {
+  - id_pedido: int
+  - usuario: Usuario
+  - restaurante: Restaurante
+  - itens: List<ItemMenu>
+  - preco_total: float
+  - status: string
+  - drone_atribuido: Drone
+  
+  + atualizar_status(novo_status)
+  + calcular_total()
+  + atribuir_drone(drone)
+  + obter_detalhes_pedido()
+}
+
+Usuario -- Pedido : faz
+Pedido --> Restaurante : pedido de
+Pedido --> Drone : entregue por
+
+@enduml
