@@ -1,1 +1,27 @@
-site_name: My Docs
+site_name: Grupo 4 - Projeto DroneEntrega
+site_description: Projeto de solução logística e digital para viabilizar entregas na Ilha Primeira (RJ) do Grupo 4
+site_author: PBE_25.1_8001_IV
+repo_name: PBE_25.1_8001_IV
+repo_url: https://github.com/Projetos-de-Extensao/PBE_25.1_8001_IV
+
+theme:
+  name: readthedocs
+  language: pt
+  features:
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
