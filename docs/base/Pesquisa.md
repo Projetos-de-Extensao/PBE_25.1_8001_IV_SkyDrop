@@ -10,7 +10,9 @@ Atualmente, existe um contêiner que poderia facilitar as entregas, porém seu a
 
 ### Principais soluções possíveis
 -Ilha delivery
+
 -Parcerias com Serviços de Transporte Aquaviário Existentes: Colaborar com operadores locais, como o Simão Express, para estabelecer rotas regulares de entrega, aproveitando a infraestrutura já existente e a experiência dos barqueiros na região
+
 -Implementação de Entregas por Drones: Inspirando-se em iniciativas como a do iFood, que iniciou entregas experimentais por drones no Brasil, propõe-se a utilização de drones para entregas rápidas e de pequeno porte na Ilha Primeira. Essa abordagem pode reduzir significativamente o tempo de entrega e minimizar a dependência exclusiva do transporte aquaviário.
 
 ### Ideias de inovação
