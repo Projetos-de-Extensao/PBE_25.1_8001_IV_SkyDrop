@@ -1,0 +1,57 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+
+actor "Cliente" as Usuario
+actor "Administrador" as Admin
+actor "Sistema" as Sistema
+
+rectangle "Funcionalidades do Usuário" {
+    (Cadastrar-se)
+    (Registrar Pedido de Entrega)
+    (Efetuar Pagamento)
+    (Detalhar Pedido)
+    (Escolher Horário Preferencial)
+    (Selecionar Tipo de Carga)
+    (Rastrear Entrega)
+    (Visualizar Estatísticas)
+    (Receber Notificações)
+    (Escolher Modalidade de Entrega)
+    (Entrega por Drone)
+    (Entrega Marítima)
+    (Buscar Entregadores/Pedidos)
+}
+
+rectangle "Funcionalidades Administrativas" {
+    (Acessar Painel Administrativo)
+    (Monitorar Entregas)
+    (Gerenciar Usuários)
+}
+
+' Relacionamentos do Usuário
+Usuario --> (Cadastrar-se)
+Usuario --> (Registrar Pedido de Entrega)
+(Registrar Pedido de Entrega) --> (Detalhar Pedido) : <<include>>
+(Detalhar Pedido) --> (Efetuar Pagamento) : <<include>>
+(Detalhar Pedido) --> (Escolher Horário Preferencial) : <<extend>>
+(Detalhar Pedido) --> (Selecionar Tipo de Carga) : <<extend>>
+
+Usuario --> (Rastrear Entrega)
+Usuario --> (Visualizar Estatísticas)
+Usuario --> (Receber Notificações)
+Usuario --> (Escolher Modalidade de Entrega)
+(Escolher Modalidade de Entrega) --> (Entrega por Drone) : <<extend>>
+(Escolher Modalidade de Entrega) --> (Entrega Marítima) : <<extend>>
+
+Sistema --> (Buscar Entregadores/Pedidos)
+
+' Relacionamentos do Administrador
+Admin --> (Acessar Painel Administrativo)
+(Acessar Painel Administrativo) --> (Monitorar Entregas) : <<include>>
+(Acessar Painel Administrativo) --> (Gerenciar Usuários) : <<include>>
+
+' Sistema como ator interno (por automação)
+Sistema --> (Receber Notificações)
+Sistema --> (Atualizar Rastreamento)
+Sistema --> (Gerar Estatísticas)

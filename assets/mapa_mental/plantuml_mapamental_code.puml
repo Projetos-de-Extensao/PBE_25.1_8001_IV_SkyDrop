@@ -1,0 +1,74 @@
+@startmindmap
+
+<style>
+mindmapDiagram {
+  .green {
+    BackgroundColor lightgreen
+  }
+  .rose {
+    BackgroundColor #FFBBCC
+  }
+  .red {
+    BackgroundColor red
+  }
+  .blue {
+    BackgroundColor lightblue
+  }
+  .orange {
+    BackgroundColor orange
+  }
+}
+</style>
+
+* Projeto "Ilha Primeira" \n (Acessibilidade iFood)<<red>>
+
+
+** Soluções <<green>>
+***[#lightgreen] Divisão de entrega em duas etapas:
+****[#lightgreen] Entrega 1 de drone ate píer
+****[#lightgreen] Entrega 2 de píer ate morador
+****[#lightgreen] Criar um fluxo de entrega híbrido
+***[#lightgreen] Estação de transbordo no píer
+***[#lightgreen] Entregas de drone
+****[#lightgreen] Mais rapido
+****[#lightgreen] Entregas mais rápidas
+****[#lightgreen] Pula transito
+****[#lightgreen] Operação contínua 24/7
+***[#lightgreen] Parceria com o Ilha Delivery
+****[#lightgreen] Aproveitamento da estrutura já existente
+****[#lightgreen] Integração API do iFood usando Ilha Delivery
+
+** Tecnologias Envolvidas <<blue>>
+***[#lightblue] Sistema de geolocalização
+****[#lightblue] Adaptado para mapeamento da ilha
+***[#lightblue] Drones com autonomia controlada 
+****[#lightblue] Pensar questões legais e ambientais
+****[#lightblue] App auxiliar para organizar as entregas e status da logística.
+***[#lightblue] Informações para cliente
+****[#lightblue] Rastreamento das entregas e comunicação
+****[#lightblue] Notificações sobre atrasos, (clima)
+****[#lightblue] Confirmação de entrega visual, foto
+
+left side
+
+** Problemas Identificados<<rose>>
+***[#FFBBCC] Ilha sem acesso terrestre
+***[#FFBBCC] Dependência de barcos
+****[#FFBBCC] Entregadores não alcançam os moradores
+***[#FFBBCC] Restaurantes não entregam
+****[#FFBBCC] Região isolada Ifood não intrega
+***[#FFBBCC] Clima afeta prazos
+
+** Riscos / Considerações <<Orange>>
+***[#Orange] Clima pode afetar o transporte
+***[#Orange] Regulamentação ANAC (drone)
+***[#Orange] Custo inicial alto
+****[#Orange] Responsabilidade por perdas
+***[#Orange] Segurança no píer
+***[#Orange] Geographia da Ilha
+****[#Orange] Realizar mapeamento técnico da ilha
+
+
+
+
+@endmindmap
