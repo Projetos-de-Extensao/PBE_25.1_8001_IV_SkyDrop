@@ -4,10 +4,6 @@
 A Ilha Primeira, situada na Lagoa da Tijuca, Rio de Janeiro, é uma comunidade que enfrenta desafios logísticos devido à ausência de acesso terrestre direto. Os moradores dependem exclusivamente de transporte aquaviário para se conectar ao continente, o que impacta a eficiência de serviços essenciais, como a entrega de alimentos e mercadorias. Este estudo propõe a implementação de um sistema de entrega inovador que utiliza embarcações locais e drones, visando otimizar a logística e melhorar a qualidade de vida dos residentes.​
 </p>
 
-<p align = "justify">
-Atualmente, existe um contêiner que poderia facilitar as entregas, porém seu alto custo torna seu uso inviável para muitos moradores. Além disso, anteriormente havia um ponto de apoio que recebia pedidos via aplicativos de delivery e repassava aos moradores por meio do WhatsApp. No entanto, esse serviço foi desativado devido à dificuldade de gerenciamento.
-</p>
-
 ### Principais soluções possíveis
 - Ilha delivery
 
@@ -37,7 +33,7 @@ Atualmente, existe um contêiner que poderia facilitar as entregas, porém seu a
 A integração de serviços de transporte aquaviário e entregas por drones apresenta uma solução viável para os desafios logísticos enfrentados pela comunidade da Ilha Primeira. Ao aproveitar as infraestruturas existentes e incorporar tecnologias inovadoras, é possível melhorar significativamente a eficiência das entregas, contribuindo para a qualidade de vida dos moradores e promovendo o desenvolvimento sustentável da região.</p>
 
 ### Visualização do mapa na Ilha Primeira
-[!Mapa Ilha Primeira](docs/assets/Mapa_da_Ilha/image.png)
+[Mapa Ilha Primeira](docs/assets/Mapa_da_Ilha/image.png)
 
 
 | Data       | Versão | Descrição                | Autor(es) |
