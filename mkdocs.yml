@@ -4,24 +4,63 @@ site_author: PBE_25.1_8001_IV
 repo_name: PBE_25.1_8001_IV
 repo_url: https://github.com/Projetos-de-Extensao/PBE_25.1_8001_IV
 
+
 theme:
-  name: readthedocs
-  language: pt
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: lime
+  font:
+    text: 'Inter'
+    code: 'Fira Code'
+  logo: images/skydrop-logo.svg
+  favicon: images/favicon.ico
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - navigation.footer
     - navigation.top
+    - navigation.instant
+    - navigation.instant.progress
     - content.code.copy
-    - content.action.edit
+    - content.code.select
+    - content.code.annotate 
+
+extra_css:
+  - stylesheets/color.css
+
+plugins:
+  - search
+  - mkdocs-jupyter:
+      execute: false
+      include_requirejs: true
+      include_source: true
+  - mkdocs-nav-weight:
+      section_renamed: false
+      index_weight: -10
+      warning: true
+      reverse: false
+      headless_included: false
+
+extra:
+  consent:
+    actions:
+      - accept
+      - manage
 
 markdown_extensions:
-  - toc:
-      permalink: true
-  - tables
   - admonition
-  - codehilite
-  - footnotes
-  - meta
   - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true

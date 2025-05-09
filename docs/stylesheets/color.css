@@ -1,0 +1,79 @@
+:root {
+    --primary-color: #007BFF;   /* Sky blue */
+    --accent-color: #FFD600;    /* Bright yellow */
+    --background-color: #FFFDF7;
+    --text-color: #000000;
+    --nav-bg: #FFFFFF;
+    --link-color: #001c3b;
+    --link-hover: #FFD600;
+  }
+  
+  /* General Body Style */
+  body {
+    background-color: var(--background-color);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+  }
+  
+  /* Header (Top Bar) */
+  .md-header {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  /* Navigation Panel */
+  .md-nav {
+    background-color: var(--nav-bg);
+    border-right: 1px solid #eee;
+  }
+  
+  .md-nav__link--active {
+    color: var(--accent-color);
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4 {
+    color: var(--primary-color);
+  }
+  
+  /* Links */
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+  }
+  
+  /* Buttons */
+  .md-typeset .btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5em 1.1em;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .md-typeset .btn:hover {
+    background-color: #005ecb;
+    transform: scale(1.03);
+  }
+  
+  /* Callouts or Highlights */
+  .highlight, .admonition, .md-typeset .note {
+    border-left: 4px solid var(--accent-color);
+    background-color: #fff9e6;
+    padding: 0.5em 1em;
+  }
+  
+  /* Footer */
+  .md-footer {
+    background-color: #f0f4ff;
+    color: #555;
+  }
+  
