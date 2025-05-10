@@ -4,19 +4,17 @@ site_author: PBE_25.1_8001_IV
 repo_name: PBE_25.1_8001_IV
 repo_url: https://github.com/Projetos-de-Extensao/PBE_25.1_8001_IV
 
-
 theme:
   name: material
-  #palette:
-    #- scheme: default
-     # primary: custom
-     # accent: custom
-
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
   font:
     text: 'Inter'
     code: 'Fira Code'
-  logo: /images/skydrop-logo.png
-  favicon: /images/favicon.png
+  logo: assets/images/skydrop-logo.png
+  favicon: assets/images/favicon.png
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -27,7 +25,7 @@ theme:
     - navigation.instant.progress
     - content.code.copy
     - content.code.select
-    - content.code.annotate 
+    - content.code.annotate
 
 extra_css:
   - stylesheets/color.css
