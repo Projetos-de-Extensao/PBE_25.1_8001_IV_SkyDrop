@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #007BFF;   /* Sky blue */
+    --primary-color: #bd3838;   /* Sky blue */
     --accent-color: #FFD600;    /* Bright yellow */
     --background-color: #FFFDF7;
     --text-color: #000000;
@@ -60,7 +60,7 @@
   }
   
   .md-typeset .btn:hover {
-    background-color: #005ecb;
+    background-color: #bd3838;
     transform: scale(1.03);
   }
   
