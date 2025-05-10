@@ -8,8 +8,8 @@ theme:
   name: material
   palette:
     - scheme: default
-      primary: custom
-      accent: custom
+      primary: '#bd3838'  # Cor vermelha diretamente no yaml
+      accent: '#FFD600'
 
   font:
     text: 'Inter'
