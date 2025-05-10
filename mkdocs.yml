@@ -7,11 +7,11 @@ repo_url: https://github.com/Projetos-de-Extensao/PBE_25.1_8001_IV
 
 theme:
   name: material
-  palette:
-    - scheme: default
-      primary: custom
-      accent: custom
-      
+  #palette:
+    #- scheme: default
+     # primary: custom
+     # accent: custom
+
   font:
     text: 'Inter'
     code: 'Fira Code'
