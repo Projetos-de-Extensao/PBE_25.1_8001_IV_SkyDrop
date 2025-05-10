@@ -1,79 +1,74 @@
-:root {
-    --primary-color: #bd3838;   /* vermelho comida */
-    --accent-color: #FFD600;    /* Amarelo claro */
-    --background-color: #FFFDF7;
-    --text-color: #000000;
-    --nav-bg: #FFFFFF;
-    --link-color: #001c3b;
-    --link-hover: #FFD600;
-  }
-  
-  /* General Body Style */
-  body {
-    background-color: var(--background-color);
-    font-family: 'Inter', sans-serif;
-    color: var(--text-color);
-  }
-  
-  /* Header (Top Bar) */
-  .md-header {
-    background-color: var(--primary-color);
-    color: white;
-  }
-  
-  /* Navigation Panel */
-  .md-nav {
-    background-color: var(--nav-bg);
-    border-right: 1px solid #eee;
-  }
-  
-  .md-nav__link--active {
-    color: var(--accent-color);
-  }
-  
-  /* Headings */
-  h1, h2, h3, h4 {
-    color: var(--primary-color);
-  }
-  
-  /* Links */
-  a {
-    color: var(--link-color);
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  a:hover {
-    color: var(--link-hover);
-    text-decoration: underline;
-  }
-  
-  /* Buttons */
-  .md-typeset .btn {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.5em 1.1em;
-    border-radius: 8px;
-    font-weight: 600;
-    border: none;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .md-typeset .btn:hover {
-    background-color: #bd3838;
-    transform: scale(1.03);
-  }
-  
-  /* Callouts or Highlights */
-  .highlight, .admonition, .md-typeset .note {
-    border-left: 4px solid var(--accent-color);
-    background-color: #fff9e6;
-    padding: 0.5em 1em;
-  }
-  
-  /* Footer */
-  .md-footer {
-    background-color: #f0f4ff;
-    color: #555;
-  }
-  
+/* Estilos personalizados para tema Material for MkDocs */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #bd3838;  /* vermelho comida */
+  --md-accent-fg-color:         #FFD600;  /* Amarelo claro */
+
+  --md-default-bg-color:        #FFFDF7;
+  --md-default-fg-color:        #000000;
+
+  --md-typeset-a-color:         #001c3b;
+  --md-typeset-a-color--hover:  #FFD600;
+
+  --md-footer-bg-color:         #f0f4ff;
+  --md-footer-fg-color:         #555;
+
+  --md-code-bg-color:           #fff9e6;
+}
+
+/* Estilos gerais adicionais */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Cabeçalho (Top Bar) */
+.md-header {
+  color: white;
+}
+
+/* Navegação lateral */
+.md-nav {
+  background-color: #FFFFFF;
+  border-right: 1px solid #eee;
+}
+
+.md-nav__link--active {
+  color: var(--md-accent-fg-color);
+}
+
+/* Títulos */
+h1, h2, h3, h4 {
+  color: var(--md-primary-fg-color);
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Botões */
+.md-typeset .btn {
+  background-color: var(--md-primary-fg-color);
+  color: white;
+  padding: 0.5em 1.1em;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.md-typeset .btn:hover {
+  background-color: #bd3838;
+  transform: scale(1.03);
+}
+
+/* Callouts ou Destaques */
+.highlight, .admonition, .md-typeset .note {
+  border-left: 4px solid var(--md-accent-fg-color);
+  background-color: #fff9e6;
+  padding: 0.5em 1em;
+}
