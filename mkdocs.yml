@@ -10,11 +10,12 @@ theme:
     - scheme: default
       primary: custom
       accent: custom
+
   font:
     text: 'Inter'
     code: 'Fira Code'
-  logo: assets/images/skydrop-logo.png
-  favicon: assets/images/favicon.png
+  logo: /images/skydrop-logo.png
+  favicon: /images/favicon.png
   features:
     - navigation.tabs
     - navigation.tabs.sticky

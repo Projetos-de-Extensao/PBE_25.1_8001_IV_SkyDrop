@@ -1,74 +1,44 @@
-/* Estilos personalizados para tema Material for MkDocs */
-[data-md-color-scheme="default"] {
-  --md-primary-fg-color:        #bd3838;  /* vermelho comida */
-  --md-accent-fg-color:         #FFD600;  /* Amarelo claro */
-
-  --md-default-bg-color:        #FFFDF7;
-  --md-default-fg-color:        #000000;
-
-  --md-typeset-a-color:         #001c3b;
-  --md-typeset-a-color--hover:  #FFD600;
-
-  --md-footer-bg-color:         #f0f4ff;
-  --md-footer-fg-color:         #555;
-
-  --md-code-bg-color:           #fff9e6;
-}
-
-/* Estilos gerais adicionais */
-body {
-  font-family: 'Inter', sans-serif;
-}
-
-/* Cabeçalho (Top Bar) */
+/* Estilos personalizados para o tema */
 .md-header {
-  color: white;
+  background-color: #bd3838 !important;
+  color: white !important;
 }
 
-/* Navegação lateral */
+/* Painel de navegação */
 .md-nav {
-  background-color: #FFFFFF;
+  background-color: #FFFFFF !important;
   border-right: 1px solid #eee;
-}
-
-.md-nav__link--active {
-  color: var(--md-accent-fg-color);
-}
-
-/* Títulos */
-h1, h2, h3, h4 {
-  color: var(--md-primary-fg-color);
 }
 
 /* Links */
 a {
-  text-decoration: none;
-  font-weight: 500;
+  color: #001c3b !important;
+  text-decoration: none !important;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #FFD600 !important;
+  text-decoration: underline !important;
 }
 
 /* Botões */
 .md-typeset .btn {
-  background-color: var(--md-primary-fg-color);
-  color: white;
-  padding: 0.5em 1.1em;
-  border-radius: 8px;
-  font-weight: 600;
-  border: none;
-  transition: all 0.2s ease-in-out;
+  background-color: #bd3838 !important;
+  color: white !important;
+  padding: 0.5em 1.1em !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  border: none !important;
+  transition: all 0.2s ease-in-out !important;
 }
 
 .md-typeset .btn:hover {
-  background-color: #bd3838;
-  transform: scale(1.03);
+  background-color: #bd3838 !important;
+  transform: scale(1.03) !important;
 }
 
-/* Callouts ou Destaques */
-.highlight, .admonition, .md-typeset .note {
-  border-left: 4px solid var(--md-accent-fg-color);
-  background-color: #fff9e6;
-  padding: 0.5em 1em;
+/* Rodapé */
+.md-footer {
+  background-color: #f0f4ff !important;
+  color: #555 !important;
 }
