@@ -3,7 +3,6 @@ id: diagrama_de_classes
 title: Diagrama de Classes
 ---
 
-# Não precisa entregar para a AP1
 ## Introdução
 
 <p align = "justify">
@@ -18,22 +17,12 @@ A equipe se reuniu por .... e realizou um brainstorm onde foram dicutidos os tó
 Para a criação da primeira versão do diagrama de classes, a equipe utilizou o programa... Além disso, foi utilizado... para videoconferência e Visual Studio Code / Live Share para elaboração da documentação.
 </p>
 
-# ENTREGUE NO PRÓXIMO INCREMENTO
 ## Diagrama de Classes
 
 ### Versão 1.0
 
 
-
-![![Diagrama de Classes](../assets/diagrama_de_classes/diagrama_de_classes.png)](../assets/diagrama_de_classes/diagrama_de_classes.png)
-
-### Versão 1.1
-![![Diagrama de Classes](../assets/diagrama_de_classes/diagrama_de_classes_1.1.png)](../assets/diagrama_de_classes/diagrama_de_classes_1.1.png)
-
-
-### Versão 2.0
-
-![![Diagrama de Classes](../assets/diagrama_de_classes/diagrama_de_classes_1.1.png)](../assets/diagrama_de_classes/diagrama_de_classes_2.0.png)
+![Test](../../assets/diagrama_de_classes/diagrama_de_classes_V1.png)
 
 
 #### Rastreabilidade de Requisitos

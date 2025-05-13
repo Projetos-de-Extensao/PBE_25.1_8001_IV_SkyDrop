@@ -20,10 +20,10 @@ Foi levantado um ponto importante sobre o app e, assim, foi produzido o mapa men
 ## Versão 1.0
  
 ### Mapa mental Ver. 1.0
-![Mapa mental Entrevista](/docs/assets/mapa_mental/mapamental_ver1.png)
+![Mapa mental Entrevista](../../assets/mapa_mental/mapamental_ver1.png)
 
 ### Mapa mental Ver. 2.0
-![Mapa mental Entrevista](/docs/assets/mapa_mental/mapamental_ver2.png)
+![Mapa mental Entrevista](../../assets/mapa_mental/mapamental_ver2.png)
 
  
 ## Conclusão

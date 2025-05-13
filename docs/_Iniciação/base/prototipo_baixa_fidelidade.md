@@ -9,17 +9,17 @@
 ## Tela de Login
 Representa o primeiro acesso do usuário ao aplicativo, onde ele deve inserir seu login e senha.
 
-![Baixa Fid Tela Login](/docs/assets/BaixaFidelidade/baixa_fid_3.png)
+![Baixa Fid Tela Login](../../assets/BaixaFidelidade/baixa_fid_3.png)
 
 ## Tela Inicial
 Mostra opções como restaurantes, promoções, favoritos e as últimas lojas que o cliente efetuou um pedido.
 
-![Baixa Fid Tela Inicial](/docs/assets/BaixaFidelidade/baixa_fid_2.png)
+![Baixa Fid Tela Inicial](../../assets/BaixaFidelidade/baixa_fid_2.png)
 
 ## Tela de Pedido em Andamento
 Exibe o status do pedido, número do pedido, endereço de entrega, nome do restaurante e itens comprados.
 
-![Baixa Fid Tela Pedido](/docs/assets/BaixaFidelidade/baixa_fid_1.png)
+![Baixa Fid Tela Pedido](../../assets/BaixaFidelidade/baixa_fid_1.png)
 
 
 

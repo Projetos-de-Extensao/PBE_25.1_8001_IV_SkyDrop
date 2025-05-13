@@ -8,12 +8,11 @@ theme:
   name: material
   palette:
     - scheme: default
-      primary: '#bd3838'  # Cor vermelha diretamente no yaml
-      accent: '#FFD600'
-
+      primary: red
+      accent: red
   font:
-    text: 'Inter'
-    code: 'Fira Code'
+    text: Roboto
+    code: Roboto Mono
   logo: /images/skydrop-logo.png
   favicon: /images/favicon.png
   features:
@@ -37,12 +36,7 @@ plugins:
       execute: false
       include_requirejs: true
       include_source: true
-  - mkdocs-nav-weight:
-      section_renamed: false
-      index_weight: -10
-      warning: true
-      reverse: false
-      headless_included: false
+
 
 extra:
   consent:

@@ -1,44 +1,82 @@
-/* Estilos personalizados para o tema */
-.md-header {
-  background-color: #bd3838 !important;
-  color: white !important;
+:root {
+  --primary-color: #EA1D2C;    /* iFood Red */
+  --accent-color: #000000;     /* Deeper Red for contrast */
+  --background-color: #FFFFFF;
+  --text-color: #1A1A1A;       /* Very dark gray for readability */
+  --hover-bg: #F7F7F7;
 }
 
-/* Painel de navegação */
+/* Base styles */
+body {
+  background-color: var(--background-color);
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);
+}
+
+/* Header */
+.md-header {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Navigation panel */
 .md-nav {
-  background-color: #FFFFFF !important;
-  border-right: 1px solid #eee;
+  background-color: var(--background-color);
+  border-right: 1px solid #E0E0E0;
+}
+
+.md-nav__link {
+  color: var(--text-color);
+}
+
+.md-nav__link--active {
+  color: var(--accent-color);
+  font-weight: bold;
+  background-color: var(--hover-bg);
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  color: var(--primary-color);
 }
 
 /* Links */
 a {
-  color: #001c3b !important;
-  text-decoration: none !important;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
 }
 
 a:hover {
-  color: #FFD600 !important;
-  text-decoration: underline !important;
+  color: var(--primary-color);
+  text-decoration: underline;
 }
 
-/* Botões */
+/* Buttons */
 .md-typeset .btn {
-  background-color: #bd3838 !important;
-  color: white !important;
-  padding: 0.5em 1.1em !important;
-  border-radius: 8px !important;
-  font-weight: 600 !important;
-  border: none !important;
-  transition: all 0.2s ease-in-out !important;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5em 1.2em;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
 }
 
 .md-typeset .btn:hover {
-  background-color: #bd3838 !important;
-  transform: scale(1.03) !important;
+  background-color: #c41622;
+  transform: translateY(-1px);
 }
 
-/* Rodapé */
+/* Admonitions / notes */
+.admonition, .md-typeset .note {
+  background-color: #fff5f5;
+  border-left: 4px solid var(--primary-color);
+  padding: 0.75em 1em;
+}
+
+/* Footer */
 .md-footer {
-  background-color: #f0f4ff !important;
-  color: #555 !important;
+  background-color: #FAFAFA;
+  color: #666;
 }
