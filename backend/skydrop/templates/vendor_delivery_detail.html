@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="max-width: 420px; margin: 0 auto;">
+    <h2>Delivery #{{ delivery.id }}</h2>
+    <div><strong>Status:</strong> {{ delivery.delivery_status|capfirst }}</div>
+    <div><strong>Price:</strong> ${{ delivery.payment_request.price }}</div>
+    <div><strong>Weight:</strong> {{ delivery.payment_request.weight }} kg</div>
+    <div><strong>Client:</strong> {{ delivery.payment_request.client.user.username }}</div>
+    <div><strong>Address:</strong> {{ delivery.delivery_address }}</div>
+    <div><strong>Drone:</strong> {{ delivery.drone|default:"Not assigned" }}</div>
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {% if delivery.payment_request.status == 'pending' and delivery.delivery_status == 'pending' %}
+            <button type="button" disabled>Waiting for payment...</button>
+        {% elif delivery.payment_request.status == 'paid' and delivery.delivery_status == 'pending' %}
+            <button type="submit" name="send_drone">Send Drone</button>
+        {% elif delivery.delivery_status == 'in_progress' %}
+            <button type="button" disabled>Drone in progress</button>
+        {% elif delivery.delivery_status == 'delivered' %}
+            <button type="button" disabled>Delivered, awaiting client</button>
+        {% elif delivery.delivery_status == 'cancelled' or delivery.payment_request.status == 'cancelled' %}
+            <button type="button" disabled>Cancelled</button>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

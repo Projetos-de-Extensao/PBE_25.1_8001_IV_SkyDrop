@@ -1,40 +1,37 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-class Perfil(models.Model):
+class ClienteUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     endereco = models.CharField(max_length=255)
     telefone = models.CharField(max_length=20)
 
     def __str__(self):
-        return f"Perfil de {self.user.username}"
-
-class Restaurante(models.Model):
-    nome = models.CharField(max_length=100)
-    localizacao = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.nome
-
-    def preparar_pedido(self, id_pedido):
-        # lógica para preparar pedido
-        pass
-
-    def atualizar_cardapio(self, item, acao):
-        # lógica para adicionar/remover item do cardápio
-        pass
-
-    def obter_cardapio(self):
-        return self.cardapio.all()
+        return f"Cliente {self.user.username}"
 
 
-class ItemMenu(models.Model):
-    nome = models.CharField(max_length=100)
-    preco = models.DecimalField(max_digits=8, decimal_places=2)
-    restaurante = models.ForeignKey(Restaurante, related_name='cardapio', on_delete=models.CASCADE)
+class VendorUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    empresa_nome = models.CharField(max_length=255)
 
     def __str__(self):
-        return f"{self.nome} - R${self.preco}"
+        return f"Vendedor {self.user.username}"
+
+
+class PaymentRequest(models.Model):
+    vendor = models.ForeignKey(VendorUser, on_delete=models.CASCADE)
+    client = models.ForeignKey(ClienteUser, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    weight = models.DecimalField(max_digits=6, decimal_places=2)
+    status = models.CharField(max_length=20, choices=[
+        ('pending', 'Pending'),
+        ('paid', 'Paid'),
+        ('cancelled', 'Cancelled')
+    ])
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Pagamento #{self.id} - {self.status}"
 
 
 class Drone(models.Model):
@@ -65,43 +62,17 @@ class Drone(models.Model):
         pass
 
 
-class Pedido(models.Model):
-    STATUS_CHOICES = [
-        ('realizado', 'Realizado'),
-        ('preparando', 'Preparando'),
-        ('a_caminho', 'A Caminho'),
-        ('entregue', 'Entregue')
-    ]
-
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-    restaurante = models.ForeignKey(Restaurante, on_delete=models.CASCADE)
-    itens = models.ManyToManyField(ItemMenu)
-    preco_total = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES)
-    drone_atribuido = models.ForeignKey(Drone, null=True, blank=True, on_delete=models.SET_NULL)
+class Delivery(models.Model):
+    payment_request = models.OneToOneField(PaymentRequest, on_delete=models.CASCADE)
+    drone = models.ForeignKey(Drone, null=True, blank=True, on_delete=models.SET_NULL)
+    delivery_status = models.CharField(max_length=20, choices=[
+        ('pending', 'Pending'),
+        ('in_progress', 'In Progress'),
+        ('delivered', 'Delivered'),
+        ('confirmed', 'Confirmed')
+    ])
+    delivery_address = models.CharField(max_length=255)
+    delivered_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return f"Pedido #{self.id} - {self.status}"
-
-    def atualizar_status(self, novo_status):
-        self.status = novo_status
-        self.save()
-
-    def calcular_total(self):
-        total = sum(item.preco for item in self.itens.all())
-        self.preco_total = total
-        self.save()
-        return total
-
-    def atribuir_drone(self, drone):
-        self.drone_atribuido = drone
-        self.save()
-
-    def obter_detalhes_pedido(self):
-        return {
-            "usuario": self.usuario.nome,
-            "itens": list(self.itens.values_list('nome', flat=True)),
-            "total": self.preco_total,
-            "status": self.status,
-            "drone": self.drone_atribuido.id if self.drone_atribuido else None
-        }
+        return f"Entrega #{self.id} - {self.delivery_status}"

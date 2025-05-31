@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Active Deliveries</h2>
+<ul>
+    {% for delivery in active_deliveries %}
+        <li>
+            <a href="{% url 'vendor_delivery_detail' delivery.id %}">
+                <strong>Delivery #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No active deliveries.</li>
+    {% endfor %}
+</ul>
+<h2>Past Deliveries</h2>
+<ul>
+    {% for delivery in past_deliveries %}
+        <li>
+            <a href="{% url 'vendor_delivery_detail' delivery.id %}">
+                <strong>Delivery #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No past deliveries.</li>
+    {% endfor %}
+</ul>
+<div style="margin-top:2em;">
+    <a href="{% url 'vendor_create_delivery' %}">
+        <button>Create New Delivery</button>
+    </a>
+</div>
+{% endblock %}

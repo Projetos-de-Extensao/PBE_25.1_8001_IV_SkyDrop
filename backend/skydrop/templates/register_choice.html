@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Register as:</h2>
+<div style="display: flex; gap: 2em; justify-content: center; margin-top: 2em;">
+    <a href="{% url 'register_customer' %}">
+        <button style="padding: 1em 2em;">Cliente</button>
+    </a>
+    <a href="{% url 'register_vendor' %}">
+        <button style="padding: 1em 2em;">Vendor</button>
+    </a>
+</div>
+{% endblock %}

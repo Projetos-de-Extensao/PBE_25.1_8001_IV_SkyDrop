@@ -16,7 +16,30 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import path, re_path, include
+from rest_framework import permissions
+from rest_framework.permissions import IsAuthenticated
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from django.shortcuts import redirect
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="SkyDrop API",
+        default_version='v1',
+        description="Documentação da API para o sistema de entrega de alimentos movido a drones",
+        contact=openapi.Contact(email="admin@admin.com"),
+        license=openapi.License(name="Back End License"),
+    ),
+    public=True,
+    permission_classes=(IsAuthenticated,),
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('skydrop.urls')),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui()),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('', lambda request: redirect('login')),
 ]
