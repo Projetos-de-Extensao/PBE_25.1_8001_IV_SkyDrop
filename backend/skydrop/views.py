@@ -102,22 +102,20 @@ def register_customer(request):
         form = CustomerRegisterForm()
     return render(request, 'customer_register.html', {'form': form})
 
+
 def register_vendor(request):
     if request.method == 'POST':
         form = VendorRegisterForm(request.POST)
         if form.is_valid():
-            with transaction.atomic():
-                user = User.objects.create_user(
-                    username=form.cleaned_data['username'],
-                    email=form.cleaned_data['email'],
-                    password=form.cleaned_data['password']
-                )
-                vendor = VendorUser.objects.create(
-                    user=user,
-                    empresa_nome=form.cleaned_data['empresa_nome']
-                )
-                login(request, user)
-                return redirect('vendor_main')
+            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            endereco = form.cleaned_data['endereco']
+            empresa_nome = form.cleaned_data['empresa_nome']
+
+            user = User.objects.create_user(username=username, email=email, password=password)
+            VendorUser.objects.create(user=user, endereco=endereco, empresa_nome=empresa_nome)
+            # ...redirect or login...
     else:
         form = VendorRegisterForm()
     return render(request, 'vendor_register.html', {'form': form})
@@ -207,10 +205,11 @@ def vendor_create_delivery(request):
                 status='pending'
             )
             # Create Delivery
+            cliente = form.cleaned_data['recipient']
             delivery = Delivery.objects.create(
                 payment_request=payment_request,
                 delivery_status='pending',
-                delivery_address=form.cleaned_data['delivery_address']
+                delivery_address=cliente.endereco  # Use the selected client's address
             )
             return redirect('vendor_delivery_detail', delivery_id=delivery.id)
     else:

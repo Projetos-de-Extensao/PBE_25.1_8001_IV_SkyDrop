@@ -1,9 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>Create New Delivery</h2>
-<form method="post">
+<form method="post" id="delivery-form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create Delivery</button>
+    <div style="display: flex; flex-direction: column; gap: 1em; max-width: 350px;">
+        <label for="id_recipient">Recipient (Cliente):</label>
+        {{ form.recipient }}
+        <div id="address-display" style="font-size:0.95em; color:#555; margin-top:0.3em; margin-bottom:0.7em;"></div>
+
+        <label for="id_weight">Weight (kg):</label>
+        <div style="display: flex; align-items: center;">
+            {{ form.weight }}
+        </div>
+
+        <label for="id_price">Price (R$):</label>
+        <div style="display: flex; align-items: center;">
+            {{ form.price }}
+        </div>
+
+        <button type="submit" style="margin-top: 1em;">Create Delivery</button>
+    </div>
 </form>
+
+<script>
+    // Get the recipient select and address display elements
+    const recipientSelect = document.getElementById("id_recipient");
+    const addressDisplay = document.getElementById("address-display");
+
+    // Function to fetch and display the selected client's address
+    async function updateAddress() {
+        const clientId = recipientSelect.value;
+        if (!clientId) {
+            addressDisplay.textContent = "";
+            return;
+        }
+        // Adjust the API endpoint as needed for your setup
+        const response = await fetch(`/api/clientes/${clientId}/`);
+        if (response.ok) {
+            const data = await response.json();
+            addressDisplay.textContent = data.endereco || "No address found.";
+        } else {
+            addressDisplay.textContent = "Unable to fetch address.";
+        }
+    }
+
+    // Update address on page load and when selection changes
+    recipientSelect.addEventListener("change", updateAddress);
+    window.addEventListener("DOMContentLoaded", updateAddress);
+</script>
 {% endblock %}

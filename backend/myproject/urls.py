@@ -22,6 +22,8 @@ from rest_framework.permissions import IsAuthenticated
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.shortcuts import redirect
+from rest_framework.routers import DefaultRouter
+from skydrop.views import ClienteUserViewSet, VendorUserViewSet, PaymentRequestViewSet, DroneViewSet, DeliveryViewSet
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -35,11 +37,19 @@ schema_view = get_schema_view(
     permission_classes=(IsAuthenticated,),
 )
 
+router = DefaultRouter()
+router.register(r'clientes', ClienteUserViewSet)
+router.register(r'vendores', VendorUserViewSet)
+router.register(r'pagamentos', PaymentRequestViewSet)
+router.register(r'drones', DroneViewSet)
+router.register(r'entregas', DeliveryViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('skydrop.urls')),
+    path('', include('skydrop.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui()),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('', lambda request: redirect('login')),
+    path('', include(router.urls)),
 ]

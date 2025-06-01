@@ -1,24 +1,84 @@
 {% extends "base.html" %}
 {% block content %}
-<div style="max-width: 420px; margin: 0 auto;">
-    <h2>Delivery #{{ delivery.id }}</h2>
-    <div><strong>Status:</strong> {{ delivery.delivery_status|capfirst }}</div>
-    <div><strong>Price:</strong> ${{ delivery.payment_request.price }}</div>
-    <div><strong>Weight:</strong> {{ delivery.payment_request.weight }} kg</div>
-    <div><strong>Vendor:</strong> {{ delivery.payment_request.vendor.empresa_nome }}</div>
-    <div><strong>Address:</strong> {{ delivery.delivery_address }}</div>
-    <form method="post">
-        {% csrf_token %}
-        {% if delivery.delivery_status == 'pending' and delivery.payment_request.status == 'pending' %}
-            <button type="submit" name="pay">Pay Seller</button>
-            <button type="submit" name="cancel" style="background:#f44336;">Cancel Delivery</button>
-        {% elif delivery.delivery_status == 'in_progress' %}
-            <button type="submit" name="confirm" style="background:#4caf50;">Confirm Delivery</button>
-        {% elif delivery.delivery_status == 'delivered' %}
-            <div class="message">Delivery confirmed. Thank you!</div>
-        {% elif delivery.delivery_status == 'cancelled' or delivery.payment_request.status == 'cancelled' %}
-            <div class="error">This delivery has been cancelled.</div>
-        {% endif %}
-    </form>
+<div style="display: flex; gap: 2em; justify-content: center;">
+    <div style="max-width: 420px;">
+        <h2>Delivery #{{ delivery.id }}</h2>
+        <div><strong>Status:</strong> {{ delivery.delivery_status|capfirst }}</div>
+        <div><strong>Price:</strong> ${{ delivery.payment_request.price }}</div>
+        <div><strong>Weight:</strong> {{ delivery.payment_request.weight }} kg</div>
+        <div><strong>Vendor:</strong> {{ delivery.payment_request.vendor.empresa_nome }}</div>
+        <div><strong>Address:</strong> {{ delivery.delivery_address }}</div>
+        <form method="post">
+            {% csrf_token %}
+            {% if delivery.delivery_status == 'pending' and delivery.payment_request.status == 'pending' %}
+                <button type="submit" name="pay">Pay Seller</button>
+                <button type="submit" name="cancel" style="background:#f44336;">Cancel Delivery</button>
+            {% elif delivery.delivery_status == 'pending' and delivery.payment_request.status == 'paid' %}
+                <div class="message">Payment delivered, awaiting drone assignment</div>
+                <!-- <button type="button" disabled style="background:#4caf50; color:#222; font-weight:600;">
+                    Payment delivered, awaiting drone assignment
+                </button> -->
+            {% elif delivery.delivery_status == 'in_progress' %}
+                <button type="submit" name="confirm" style="background:#4caf50;">Confirm Delivery</button>
+            {% elif delivery.delivery_status == 'delivered' %}
+                <div class="message">Delivery confirmed. Thank you!</div>
+            {% elif delivery.delivery_status == 'cancelled' or delivery.payment_request.status == 'cancelled' %}
+                <div class="error">This delivery has been cancelled.</div>
+            {% endif %}
+        </form>
+    </div>
+    <div style="flex:1; min-width: 350px;">
+        <div id="map" style="height: 400px; width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(34,46,80,0.08);"></div>
+    </div>
 </div>
+
+<!-- Leaflet CSS/JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    // Addresses from Django context
+    const vendorAddress = "{{ delivery.payment_request.vendor.endereco|escapejs }}";
+    const customerAddress = "{{ delivery.delivery_address|escapejs }}";
+
+    // Helper to get coordinates from Nominatim
+    async function getCoords(address) {
+        const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`;
+        const resp = await fetch(url, {headers: {'Accept-Language': 'en'}});
+        const data = await resp.json();
+        if (data.length > 0) {
+            return [parseFloat(data[0].lat), parseFloat(data[0].lon)];
+        }
+        return null;
+    }
+
+    async function showRoute() {
+        const vendorCoords = await getCoords(vendorAddress);
+        const customerCoords = await getCoords(customerAddress);
+
+        if (!vendorCoords || !customerCoords) {
+            document.getElementById('map').innerHTML = "Unable to geocode addresses.";
+            return;
+        }
+
+        // Initialize map
+        const map = L.map('map').setView(vendorCoords, 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Markers
+        L.marker(vendorCoords).addTo(map).bindPopup("Vendor").openPopup();
+        L.marker(customerCoords).addTo(map).bindPopup("Customer");
+
+        // Route line
+        L.polyline([vendorCoords, customerCoords], {color: 'blue', weight: 4}).addTo(map);
+
+        // Fit bounds
+        map.fitBounds([vendorCoords, customerCoords], {padding: [30, 30]});
+    }
+
+    showRoute();
+</script>
 {% endblock %}

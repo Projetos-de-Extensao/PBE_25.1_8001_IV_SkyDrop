@@ -12,6 +12,7 @@ class ClienteUser(models.Model):
 
 class VendorUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    endereco = models.CharField(max_length=255)
     empresa_nome = models.CharField(max_length=255)
 
     def __str__(self):

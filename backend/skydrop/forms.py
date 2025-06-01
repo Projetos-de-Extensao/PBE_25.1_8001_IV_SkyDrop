@@ -21,10 +21,16 @@ class VendorRegisterForm(forms.ModelForm):
     empresa_nome = forms.CharField()
     class Meta:
         model = VendorUser
-        fields = ['empresa_nome']
+        fields = ['endereco', 'empresa_nome']
 
 class VendorCreateDeliveryForm(forms.Form):
-    recipient = forms.ModelChoiceField(queryset=ClienteUser.objects.all(), label="Recipient (ClienteUser)")
-    price = forms.DecimalField(max_digits=8, decimal_places=2)
-    weight = forms.DecimalField(max_digits=6, decimal_places=2)
-    delivery_address = forms.CharField(max_length=255)
+    recipient = forms.ModelChoiceField(queryset=ClienteUser.objects.all(), label="Recipient (Cliente)")
+    weight = forms.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        label="Weight",
+        min_value=0.01,
+        max_value=15,  # This ensures the value cannot be above 15
+        error_messages={'max_value': 'Weight must be 15kg or less.'}
+    )
+    price = forms.DecimalField(max_digits=8, decimal_places=2, label="Price")
