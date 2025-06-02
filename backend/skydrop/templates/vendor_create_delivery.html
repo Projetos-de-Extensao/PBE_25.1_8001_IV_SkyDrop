@@ -1,24 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Create New Delivery</h2>
+<h2>Criar Nova Entrega</h2>
 <form method="post" id="delivery-form">
     {% csrf_token %}
     <div style="display: flex; flex-direction: column; gap: 1em; max-width: 350px;">
-        <label for="id_recipient">Recipient (Cliente):</label>
+        <label for="id_recipient">Destinatário (Cliente):</label>
         {{ form.recipient }}
         <div id="address-display" style="font-size:0.95em; color:#555; margin-top:0.3em; margin-bottom:0.7em;"></div>
 
-        <label for="id_weight">Weight (kg):</label>
+        <label for="id_weight">Peso (kg):</label>
         <div style="display: flex; align-items: center;">
             {{ form.weight }}
         </div>
 
-        <label for="id_price">Price (R$):</label>
+        <label for="id_price">Preço (R$):</label>
         <div style="display: flex; align-items: center;">
             {{ form.price }}
         </div>
 
-        <button type="submit" style="margin-top: 1em;">Create Delivery</button>
+        <button type="submit" style="margin-top: 1em;">Criar Entrega</button>
     </div>
 </form>
 
@@ -38,9 +38,9 @@
         const response = await fetch(`/api/clientes/${clientId}/`);
         if (response.ok) {
             const data = await response.json();
-            addressDisplay.textContent = data.endereco || "No address found.";
+            addressDisplay.textContent = data.endereco || "Endereço não encontrado.";
         } else {
-            addressDisplay.textContent = "Unable to fetch address.";
+            addressDisplay.textContent = "Não foi possível buscar o endereço.";
         }
     }
 

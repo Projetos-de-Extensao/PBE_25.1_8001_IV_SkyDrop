@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div style="max-width: 400px; margin: 2em auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(34,46,80,0.08); padding: 2em;">
-    <h2 style="text-align:center; margin-bottom: 1.5em;">Register as Vendor</h2>
+    <h2 style="text-align:center; margin-bottom: 1.5em;">Registrar como Vendedor</h2>
     <form method="post" style="display: flex; flex-direction: column; gap: 1em;">
         {% csrf_token %}
         {{ form.username.label_tag }}{{ form.username }}
@@ -9,7 +9,7 @@
         {{ form.password.label_tag }}{{ form.password }}
         {{ form.endereco.label_tag }}{{ form.endereco }}
         {{ form.empresa_nome.label_tag }}{{ form.empresa_nome }}
-        <button type="submit" style="margin-top: 1em;">Register</button>
+        <button type="submit" style="margin-top: 1em;">Registrar</button>
     </form>
 </div>
 {% endblock %}

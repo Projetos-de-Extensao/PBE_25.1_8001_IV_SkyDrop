@@ -1,27 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Active Deliveries</h2>
+<h2>Entregas Ativas</h2>
 <ul>
     {% for delivery in active_deliveries %}
         <li>
             <a href="{% url 'customer_delivery_detail' delivery.id %}">
-                <strong>Delivery #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
+                <strong>{{ delivery.payment_request.vendor.empresa_nome }} - Entrega #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
             </a>
         </li>
     {% empty %}
-        <li>No active deliveries.</li>
+        <li>Nenhuma entrega ativa.</li>
     {% endfor %}
 </ul>
-<h2>Past Deliveries</h2>
+<h2>Entregas Passadas</h2>
 <ul>
     {% for delivery in past_deliveries %}
         <li>
             <a href="{% url 'customer_delivery_detail' delivery.id %}">
-                <strong>Delivery #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
+                <strong>Entrega #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
             </a>
         </li>
     {% empty %}
-        <li>No past deliveries.</li>
+        <li>Nenhuma entrega passada.</li>
     {% endfor %}
 </ul>
 {% endblock %}
