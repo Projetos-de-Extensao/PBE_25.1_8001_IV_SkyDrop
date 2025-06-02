@@ -1,6 +1,6 @@
 # Projeto DroneEntrega
 
-![DroneLogo](../site/images/skydrop-logo.png)
+![DroneLogo](../images/skydrop-logo.png)
 
 **Número do Grupo**: 5<br>
 **Código da Disciplina**: FGA0208-T01<br>
