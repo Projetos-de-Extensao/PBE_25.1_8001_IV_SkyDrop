@@ -25,9 +25,9 @@ class PaymentRequest(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     weight = models.DecimalField(max_digits=6, decimal_places=2)
     status = models.CharField(max_length=20, choices=[
-        ('pending', 'Pending'),
-        ('paid', 'Paid'),
-        ('cancelled', 'Cancelled')
+        ('pendente', 'Pendente'),
+        ('pago', 'Pago'),
+        ('cancelado', 'Cancelado'),
     ])
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -36,41 +36,24 @@ class PaymentRequest(models.Model):
 
 
 class Drone(models.Model):
-    localizacao_atual = models.CharField(max_length=255)
-    nivel_bateria = models.FloatField()
     status = models.CharField(max_length=50, choices=[
         ('disponivel', 'Disponível'),
-        ('entregando', 'Entregando'),
-        ('carregando', 'Carregando')
+        ('entregando', 'Entregando')
     ])
 
     def __str__(self):
         return f"Drone #{self.id} - {self.status}"
-
-    def atribuir_entrega(self, pedido):
-        # lógica para atribuir pedido
-        pass
-
-    def atualizar_localizacao(self, nova_localizacao):
-        self.localizacao_atual = nova_localizacao
-        self.save()
-
-    def verificar_bateria(self):
-        return self.nivel_bateria
-
-    def recarregar(self):
-        # lógica de recarga
-        pass
 
 
 class Delivery(models.Model):
     payment_request = models.OneToOneField(PaymentRequest, on_delete=models.CASCADE)
     drone = models.ForeignKey(Drone, null=True, blank=True, on_delete=models.SET_NULL)
     delivery_status = models.CharField(max_length=20, choices=[
-        ('pending', 'Pending'),
-        ('in_progress', 'In Progress'),
-        ('delivered', 'Delivered'),
-        ('confirmed', 'Confirmed')
+        ('pendente', 'Pendente'),
+        ('em_andamento', 'Em andamento'),
+        ('entregue', 'Entregue'),
+        ('confirmado', 'Confirmado'),
+        ('cancelado', 'Cancelado'),  
     ])
     delivery_address = models.CharField(max_length=255)
     delivered_at = models.DateTimeField(null=True, blank=True)

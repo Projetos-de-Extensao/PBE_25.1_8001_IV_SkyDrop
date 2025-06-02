@@ -2,28 +2,41 @@
 {% block content %}
 <div style="display: flex; gap: 2em; justify-content: center;">
     <div style="max-width: 420px;">
-        <h2>Delivery #{{ delivery.id }}</h2>
-        <div><strong>Status:</strong> {{ delivery.delivery_status|capfirst }}</div>
-        <div><strong>Price:</strong> ${{ delivery.payment_request.price }}</div>
-        <div><strong>Weight:</strong> {{ delivery.payment_request.weight }} kg</div>
-        <div><strong>Vendor:</strong> {{ delivery.payment_request.vendor.empresa_nome }}</div>
-        <div><strong>Address:</strong> {{ delivery.delivery_address }}</div>
+        <h2 style="margin-bottom: 0.5em;">
+            {{ delivery.payment_request.vendor.empresa_nome }} - Entrega #{{ delivery.id }}
+        </h2>
+        <div style="margin-bottom: 0.5em;">
+            <strong>Status do Pedido:</strong> {{ delivery.delivery_status|capfirst }}<br>
+            <strong>Status do Drone:</strong>
+            {% if delivery.drone %}
+                {{ delivery.drone.status|capfirst }}
+            {% else %}
+                Não atribuído
+            {% endif %}
+        </div>
+        <hr style="margin: 1em 0;">
+        <div style="margin-bottom: 0.5em;">
+            <strong>Preço:</strong> R${{ delivery.payment_request.price }}<br>
+            <strong>Peso:</strong> {{ delivery.payment_request.weight }} kg
+        </div>
+        <hr style="margin: 1em 0;">
+        <div style="margin-bottom: 1em;">
+            <strong>Cliente:</strong> {{ delivery.payment_request.client.user.username }}<br>
+            <strong>Endereço:</strong> {{ delivery.delivery_address }}
+        </div>
         <form method="post">
             {% csrf_token %}
-            {% if delivery.delivery_status == 'pending' and delivery.payment_request.status == 'pending' %}
-                <button type="submit" name="pay">Pay Seller</button>
-                <button type="submit" name="cancel" style="background:#f44336;">Cancel Delivery</button>
-            {% elif delivery.delivery_status == 'pending' and delivery.payment_request.status == 'paid' %}
-                <div class="message">Payment delivered, awaiting drone assignment</div>
-                <!-- <button type="button" disabled style="background:#4caf50; color:#222; font-weight:600;">
-                    Payment delivered, awaiting drone assignment
-                </button> -->
-            {% elif delivery.delivery_status == 'in_progress' %}
-                <button type="submit" name="confirm" style="background:#4caf50;">Confirm Delivery</button>
-            {% elif delivery.delivery_status == 'delivered' %}
-                <div class="message">Delivery confirmed. Thank you!</div>
-            {% elif delivery.delivery_status == 'cancelled' or delivery.payment_request.status == 'cancelled' %}
-                <div class="error">This delivery has been cancelled.</div>
+            {% if delivery.delivery_status == 'pendente' and delivery.payment_request.status == 'pendente' %}
+                <button type="submit" name="pay">Pagar Vendedor</button>
+                <button type="submit" name="cancel" style="background:#f44336;">Cancelar Entrega</button>
+            {% elif delivery.delivery_status == 'pendente' and delivery.payment_request.status == 'pago' %}
+                <div class="message">Pagamento realizado, aguardando envio do drone</div>
+            {% elif delivery.delivery_status == 'em_andamento' %}
+                <button type="submit" name="confirm" style="background:#4caf50;">Confirmar Entrega</button>
+            {% elif delivery.delivery_status == 'entregue' %}
+                <div class="message">Entrega confirmada. Obrigado!</div>
+            {% elif delivery.delivery_status == 'cancelado' or delivery.payment_request.status == 'cancelado' %}
+                <div class="error">Esta entrega foi cancelada.</div>
             {% endif %}
         </form>
     </div>
@@ -44,7 +57,7 @@
     // Helper to get coordinates from Nominatim
     async function getCoords(address) {
         const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`;
-        const resp = await fetch(url, {headers: {'Accept-Language': 'en'}});
+        const resp = await fetch(url, {headers: {'Accept-Language': 'pt'}});
         const data = await resp.json();
         if (data.length > 0) {
             return [parseFloat(data[0].lat), parseFloat(data[0].lon)];
@@ -57,7 +70,7 @@
         const customerCoords = await getCoords(customerAddress);
 
         if (!vendorCoords || !customerCoords) {
-            document.getElementById('map').innerHTML = "Unable to geocode addresses.";
+            document.getElementById('map').innerHTML = "Não foi possível localizar os endereços.";
             return;
         }
 
@@ -69,8 +82,8 @@
         }).addTo(map);
 
         // Markers
-        L.marker(vendorCoords).addTo(map).bindPopup("Vendor").openPopup();
-        L.marker(customerCoords).addTo(map).bindPopup("Customer");
+        L.marker(vendorCoords).addTo(map).bindPopup("Vendedor").openPopup();
+        L.marker(customerCoords).addTo(map).bindPopup("Cliente");
 
         // Route line
         L.polyline([vendorCoords, customerCoords], {color: 'blue', weight: 4}).addTo(map);

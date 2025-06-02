@@ -17,7 +17,7 @@ class VendorUserSerializer(serializers.ModelSerializer):
     user = UserSerializer()
     class Meta:
         model = VendorUser
-        fields = ['id', 'user', 'empresa_nome']
+        fields = ['id', 'user', 'empresa_nome', 'endereco'] 
 
 class PaymentRequestSerializer(serializers.ModelSerializer):
     vendor = VendorUserSerializer(read_only=True)
@@ -29,7 +29,7 @@ class PaymentRequestSerializer(serializers.ModelSerializer):
 class DroneSerializer(serializers.ModelSerializer):
     class Meta:
         model = Drone
-        fields = ['id', 'localizacao_atual', 'nivel_bateria', 'status']
+        fields = ['id', 'status']
 
 class DeliverySerializer(serializers.ModelSerializer):
     payment_request = PaymentRequestSerializer(read_only=True)
