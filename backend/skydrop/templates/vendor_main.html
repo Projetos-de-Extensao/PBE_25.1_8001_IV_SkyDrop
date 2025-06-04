@@ -5,7 +5,7 @@
     {% for delivery in active_deliveries %}
         <li>
             <a href="{% url 'vendor_delivery_detail' delivery.id %}">
-                <strong>Entrega #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
+                <strong>{{ delivery.payment_request.vendor.empresa_nome }} - Entrega #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
             </a>
         </li>
     {% empty %}
@@ -17,7 +17,7 @@
     {% for delivery in past_deliveries %}
         <li>
             <a href="{% url 'vendor_delivery_detail' delivery.id %}">
-                <strong>Entrega #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
+                <strong>{{ delivery.payment_request.vendor.empresa_nome }} - Entrega #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
             </a>
         </li>
     {% empty %}

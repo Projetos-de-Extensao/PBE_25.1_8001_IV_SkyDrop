@@ -22,6 +22,7 @@ class VendorUser(models.Model):
 class PaymentRequest(models.Model):
     vendor = models.ForeignKey(VendorUser, on_delete=models.CASCADE)
     client = models.ForeignKey(ClienteUser, on_delete=models.CASCADE)
+    description = models.CharField(max_length=255, blank=True, null=True)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     weight = models.DecimalField(max_digits=6, decimal_places=2)
     status = models.CharField(max_length=20, choices=[
@@ -49,11 +50,11 @@ class Delivery(models.Model):
     payment_request = models.OneToOneField(PaymentRequest, on_delete=models.CASCADE)
     drone = models.ForeignKey(Drone, null=True, blank=True, on_delete=models.SET_NULL)
     delivery_status = models.CharField(max_length=20, choices=[
-        ('pendente', 'Pendente'),
-        ('em_andamento', 'Em andamento'),
-        ('entregue', 'Entregue'),
-        ('confirmado', 'Confirmado'),
-        ('cancelado', 'Cancelado'),  
+        ('pendente', 'Pendente'), # Awaiting Payment
+        ('entregando', 'Entregando'), # Delivery in progress
+        ('entregue', 'Entregue'), # Package delivered
+        ('confirmado', 'Confirmado'), # Payment confirmed
+        ('cancelado', 'Cancelado'), # Delivery cancelled
     ])
     delivery_address = models.CharField(max_length=255)
     delivered_at = models.DateTimeField(null=True, blank=True)

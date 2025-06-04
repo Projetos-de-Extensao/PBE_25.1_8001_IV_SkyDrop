@@ -7,6 +7,11 @@
         <label for="id_recipient">Destinatário (Cliente):</label>
         {{ form.recipient }}
         <div id="address-display" style="font-size:0.95em; color:#555; margin-top:0.3em; margin-bottom:0.7em;"></div>
+        
+        <label for="id_description">Descrição do Pacote:</label>
+        <div style="display: flex; align-items: center;">
+            {{ form.description }}
+        </div>
 
         <label for="id_weight">Peso (kg):</label>
         <div style="display: flex; align-items: center;">

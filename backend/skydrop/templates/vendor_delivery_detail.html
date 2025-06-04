@@ -16,6 +16,7 @@
         </div>
         <hr style="margin: 1em 0;">
         <div style="margin-bottom: 0.5em;">
+            <strong>Descrição:</strong> {{ delivery.payment_request.description }}<br>
             <strong>Preço:</strong> R${{ delivery.payment_request.price }}<br>
             <strong>Peso:</strong> {{ delivery.payment_request.weight }} kg
         </div>
@@ -34,9 +35,9 @@
             {% csrf_token %}
             {% if delivery.payment_request.status == 'pendente' and delivery.delivery_status == 'pendente' %}
                 <div class="message">Aguardando pagamento do cliente...</div>
-            {% elif delivery.payment_request.status == 'pago' and delivery.delivery_status == 'pendente' %}
+            {% elif delivery.payment_request.status == 'pago' and delivery.delivery_status == 'confirmado' %}
                 <button type="submit" name="send_drone">Enviar Drone</button>
-            {% elif delivery.delivery_status == 'em_andamento' %}
+            {% elif delivery.delivery_status == 'entregando' %}
                 <div class="message">Drone enviado, entrega em andamento.</div>
             {% elif delivery.delivery_status == 'entregue' %}
                 <div class="message">Pacote entregue.</div>

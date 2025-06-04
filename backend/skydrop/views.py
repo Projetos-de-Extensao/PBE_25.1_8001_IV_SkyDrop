@@ -53,7 +53,7 @@ def home(request):
             return redirect('customer_main')
         elif hasattr(request.user, 'vendoruser'):
             return redirect('vendor_main')
-    return render(request, 'base.html')
+    return render(request, 'login.html')
 
 def login_view(request):
     if request.method == 'POST':
@@ -124,8 +124,8 @@ def customer_main(request):
     if not hasattr(request.user, 'clienteuser'):
         return redirect('home')
     deliveries = Delivery.objects.filter(payment_request__client=request.user.clienteuser)
-    active = deliveries.filter(delivery_status__in=['pendente', 'em_andamento'])
-    past = deliveries.filter(delivery_status__in=['entrgue', 'cancelado'])
+    active = deliveries.filter(delivery_status__in=['pendente', 'entregando', 'confirmado'])
+    past = deliveries.filter(delivery_status__in=['entregue', 'cancelado'])
     return render(request, 'customer_main.html', {'active_deliveries': active, 'past_deliveries': past})
 
 @login_required
@@ -138,22 +138,26 @@ def customer_delivery_detail(request, delivery_id):
         if 'pay' in request.POST and delivery.payment_request.status == 'pendente':
             delivery.payment_request.status = 'pago'
             delivery.payment_request.save()
-        # Cancel
+            delivery.delivery_status = 'confirmado'
+            delivery.save()
+        
         elif 'cancel' in request.POST and delivery.payment_request.status == 'pendente':
             delivery.payment_request.status = 'cancelado'
             delivery.payment_request.save()
-            delivery.delivery_status = 'cancelado'  # Ensure delivery is marked as cancelled
+            delivery.delivery_status = 'cancelado'
+            if delivery.drone:
+                delivery.drone.status = 'disponivel'
+                delivery.drone.save()
+
+        elif 'confirm' in request.POST and delivery.delivery_status == 'entregando':
+            delivery.delivery_status = 'entregue'
             delivery.save()
             if delivery.drone:
                 delivery.drone.status = 'disponivel'
                 delivery.drone.save()
-        # Confirm delivery arrival (client confirms)
-        elif 'confirm' in request.POST and delivery.delivery_status == 'em_andamento':
-            delivery.delivery_status = 'entrgue'
-            delivery.save()
-            if delivery.drone:
-                delivery.drone.status = 'disponivel'
-                delivery.drone.save()
+    
+        return redirect('customer_delivery_detail', delivery_id=delivery.id)
+    
     return render(request, 'customer_delivery_detail.html', {'delivery': delivery})
 
 @login_required
@@ -161,8 +165,8 @@ def vendor_main(request):
     if not hasattr(request.user, 'vendoruser'):
         return redirect('home')
     deliveries = Delivery.objects.filter(payment_request__vendor=request.user.vendoruser)
-    active = deliveries.filter(delivery_status__in=['pendente', 'em_andamento'])
-    past = deliveries.filter(delivery_status__in=['entrgue', 'cancelado'])
+    active = deliveries.filter(delivery_status__in=['pendente', 'entregando', 'confirmado'])
+    past = deliveries.filter(delivery_status__in=['entregue', 'cancelado'])
     return render(request, 'vendor_main.html', {'active_deliveries': active, 'past_deliveries': past})
 
 @login_required
@@ -174,18 +178,19 @@ def vendor_delivery_detail(request, delivery_id):
 
     if request.method == 'POST':
         # Assign drone if payment is paid and delivery is pending
-        if 'send_drone' in request.POST and delivery.payment_request.status == 'pago' and delivery.delivery_status == 'pendente':
+        if 'send_drone' in request.POST and delivery.payment_request.status == 'pago' and delivery.delivery_status == 'confirmado':
             available_drone = Drone.objects.filter(status='disponivel').first()
             if available_drone:
                 delivery.drone = available_drone
-                delivery.delivery_status = 'em_andamento'
+                delivery.delivery_status = 'entregando'
                 delivery.save()
                 available_drone.status = 'entregando'
                 available_drone.save()
             else:
                 error = "Não há drones disponíveis no momento."
-        # No action needed for send_payment, as payment request is already created
-
+        
+        return redirect('vendor_delivery_detail', delivery_id=delivery.id)
+    
     return render(request, 'vendor_delivery_detail.html', {'delivery': delivery, 'error': error})
 
 @login_required
@@ -199,6 +204,7 @@ def vendor_create_delivery(request):
             payment_request = PaymentRequest.objects.create(
                 vendor=request.user.vendoruser,
                 client=form.cleaned_data['recipient'],
+                description=form.cleaned_data['description'],
                 price=form.cleaned_data['price'],
                 weight=form.cleaned_data['weight'],
                 status='pendente'
@@ -213,6 +219,7 @@ def vendor_create_delivery(request):
             return redirect('vendor_delivery_detail', delivery_id=delivery.id)
     else:
         form = VendorCreateDeliveryForm()
+
     return render(request, 'vendor_create_delivery.html', {'form': form})
 
 def register_choice(request):

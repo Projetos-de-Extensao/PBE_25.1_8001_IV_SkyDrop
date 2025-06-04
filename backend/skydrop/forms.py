@@ -33,6 +33,12 @@ class VendorRegisterForm(forms.ModelForm):
 
 class VendorCreateDeliveryForm(forms.Form):
     recipient = forms.ModelChoiceField(queryset=ClienteUser.objects.all(), label="Destinatário (Cliente)")
+    description = forms.CharField(
+        max_length=255,
+        required=False,
+        label="Descrição (opcional)",
+        widget=forms.Textarea(attrs={'rows': 3, 'placeholder': 'Descrição do pacote'})
+    )
     weight = forms.DecimalField(
         max_digits=6,
         decimal_places=2,
@@ -42,3 +48,4 @@ class VendorCreateDeliveryForm(forms.Form):
         error_messages={'max_value': 'O peso deve ser no máximo 15kg.'}
     )
     price = forms.DecimalField(max_digits=8, decimal_places=2, label="Preço (R$)")
+
