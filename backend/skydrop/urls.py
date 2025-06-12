@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from . import views
 from .views import (
     DroneViewSet, DeliveryViewSet, ClienteUserViewSet,
-    VendorUserViewSet, PaymentRequestViewSet
+    VendorUserViewSet, PaymentRequestViewSet, customer_create_request
 )
 
 router = DefaultRouter()
@@ -26,5 +26,6 @@ urlpatterns = [
     path('vendor/main', views.vendor_main, name='vendor_main'),
     path('vendor/delivery/<int:delivery_id>/', views.vendor_delivery_detail, name='vendor_delivery_detail'),
     path('vendor/create_delivery/', views.vendor_create_delivery, name='vendor_create_delivery'),
+    path('cliente/criar-pedido/', customer_create_request, name='customer_create_request'),
 ]
 

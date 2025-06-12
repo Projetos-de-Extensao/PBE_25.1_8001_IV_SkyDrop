@@ -28,24 +28,40 @@
         <div style="margin-bottom: 1em;">
             <strong>Drone:</strong> {{ delivery.drone|default:"Não atribuído" }}
         </div>
+
         {% if error %}
             <div class="error">{{ error }}</div>
         {% endif %}
-        <form method="post">
-            {% csrf_token %}
-            {% if delivery.payment_request.status == 'pendente' and delivery.delivery_status == 'pendente' %}
+
+        {% if delivery.payment_request.status == 'pendente' and delivery.delivery_status == 'pendente' %}
+            {% if delivery.payment_request.price == 0 %}
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="price">Definir Preço (R$):</label>
+                    <input type="number" name="price" id="price" step="0.01" required style="margin-bottom: 0.5em; width: 100%;">
+
+                    <label for="weight">Definir Peso (kg):</label>
+                    <input type="number" name="weight" id="weight" step="0.01" required style="margin-bottom: 0.5em; width: 100%;">
+
+                    <button type="submit" name="set_price">Confirmar Dados</button>
+                </form>
+            {% else %}
                 <div class="message">Aguardando pagamento do cliente...</div>
-            {% elif delivery.payment_request.status == 'pago' and delivery.delivery_status == 'confirmado' %}
-                <button type="submit" name="send_drone">Enviar Drone</button>
-            {% elif delivery.delivery_status == 'entregando' %}
-                <div class="message">Drone enviado, entrega em andamento.</div>
-            {% elif delivery.delivery_status == 'entregue' %}
-                <div class="message">Pacote entregue.</div>
-            {% elif delivery.delivery_status == 'cancelado' or delivery.payment_request.status == 'cancelado' %}
-                <div class="message">Entrega cancelada.</div>
             {% endif %}
-        </form>
+        {% elif delivery.payment_request.status == 'pago' and delivery.delivery_status == 'confirmado' %}
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" name="send_drone">Enviar Drone</button>
+            </form>
+        {% elif delivery.delivery_status == 'entregando' %}
+            <div class="message">Drone enviado, entrega em andamento.</div>
+        {% elif delivery.delivery_status == 'entregue' %}
+            <div class="message">Pacote entregue.</div>
+        {% elif delivery.delivery_status == 'cancelado' or delivery.payment_request.status == 'cancelado' %}
+            <div class="message">Entrega cancelada.</div>
+        {% endif %}
     </div>
+
     <div style="flex:1; min-width: 350px;">
         <div id="map" style="height: 400px; width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(34,46,80,0.08);"></div>
     </div>
@@ -56,11 +72,9 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
-    // Addresses from Django context
     const vendorAddress = "{{ delivery.payment_request.vendor.endereco|escapejs }}";
     const customerAddress = "{{ delivery.delivery_address|escapejs }}";
 
-    // Helper to get coordinates from Nominatim
     async function getCoords(address) {
         const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`;
         const resp = await fetch(url, {headers: {'Accept-Language': 'pt'}});
@@ -80,21 +94,16 @@
             return;
         }
 
-        // Initialize map
         const map = L.map('map').setView(vendorCoords, 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
         }).addTo(map);
 
-        // Markers
         L.marker(vendorCoords).addTo(map).bindPopup("Vendedor").openPopup();
         L.marker(customerCoords).addTo(map).bindPopup("Cliente");
 
-        // Route line
         L.polyline([vendorCoords, customerCoords], {color: 'blue', weight: 4}).addTo(map);
-
-        // Fit bounds
         map.fitBounds([vendorCoords, customerCoords], {padding: [30, 30]});
     }
 

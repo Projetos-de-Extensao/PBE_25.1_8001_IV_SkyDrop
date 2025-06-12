@@ -12,6 +12,7 @@
         <li>Nenhuma entrega ativa.</li>
     {% endfor %}
 </ul>
+
 <h2>Entregas Passadas</h2>
 <ul>
     {% for delivery in past_deliveries %}
@@ -24,4 +25,10 @@
         <li>Nenhuma entrega passada.</li>
     {% endfor %}
 </ul>
+
+<div style="margin-top: 2em; text-align: center;">
+    <a href="{% url 'customer_create_request' %}">
+        <button style="padding: 0.6em 1.2em; font-size: 1em;">Criar Novo Pedido</button>
+    </a>
+</div>
 {% endblock %}

@@ -1,14 +1,15 @@
 from rest_framework import viewsets, permissions
 from .models import Drone, Delivery, ClienteUser, VendorUser, PaymentRequest
 from .serializers import (
-    DroneSerializer, DeliverySerializer, ClienteUserSerializer, VendorUserSerializer, PaymentRequestSerializer
+    DroneSerializer, DeliverySerializer, ClienteUserSerializer, VendorUserSerializer, PaymentRequestSerializer,
 )
+
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import LoginForm, CustomerRegisterForm, VendorRegisterForm, VendorCreateDeliveryForm
+from .forms import LoginForm, CustomerRegisterForm, VendorRegisterForm, VendorCreateDeliveryForm, CustomerCreateRequestForm
 from django.contrib.auth.models import User
 from django.db import transaction
 from django.urls import reverse
@@ -142,12 +143,12 @@ def customer_delivery_detail(request, delivery_id):
             delivery.save()
         
         elif 'cancel' in request.POST and delivery.payment_request.status == 'pendente':
-            delivery.payment_request.status = 'cancelado'
-            delivery.payment_request.save()
-            delivery.delivery_status = 'cancelado'
             if delivery.drone:
                 delivery.drone.status = 'disponivel'
                 delivery.drone.save()
+            delivery.payment_request.delete()
+            delivery.delete()
+            return redirect('customer_main')
 
         elif 'confirm' in request.POST and delivery.delivery_status == 'entregando':
             delivery.delivery_status = 'entregue'
@@ -177,8 +178,19 @@ def vendor_delivery_detail(request, delivery_id):
     error = None
 
     if request.method == 'POST':
-        # Assign drone if payment is paid and delivery is pending
-        if 'send_drone' in request.POST and delivery.payment_request.status == 'pago' and delivery.delivery_status == 'confirmado':
+    # Vendedor define o preço, se ainda não tiver sido definido
+        if 'set_price' in request.POST:
+            try:
+                price = float(request.POST.get('price'))
+                weight = float(request.POST.get('weight'))
+                delivery.payment_request.price = price
+                delivery.payment_request.weight = weight
+                delivery.payment_request.save()
+            except ValueError:
+                error = "Preço ou peso inválido."
+
+        # Envia o drone se o pagamento foi realizado
+        elif 'send_drone' in request.POST and delivery.payment_request.status == 'pago' and delivery.delivery_status == 'confirmado':
             available_drone = Drone.objects.filter(status='disponivel').first()
             if available_drone:
                 delivery.drone = available_drone
@@ -188,10 +200,11 @@ def vendor_delivery_detail(request, delivery_id):
                 available_drone.save()
             else:
                 error = "Não há drones disponíveis no momento."
-        
+
         return redirect('vendor_delivery_detail', delivery_id=delivery.id)
-    
+
     return render(request, 'vendor_delivery_detail.html', {'delivery': delivery, 'error': error})
+
 
 @login_required
 def vendor_create_delivery(request):
@@ -224,3 +237,37 @@ def vendor_create_delivery(request):
 
 def register_choice(request):
     return render(request, 'register_choice.html')
+
+@login_required
+def customer_create_request(request):
+    if not hasattr(request.user, 'clienteuser'):
+        return redirect('home')
+
+    if request.method == 'POST':
+        form = CustomerCreateRequestForm(request.POST)
+        if form.is_valid():
+            cliente = request.user.clienteuser
+            vendor = form.cleaned_data['vendor']
+            description = form.cleaned_data['description']
+
+            payment_request = PaymentRequest.objects.create(
+                vendor=vendor,
+                client=cliente,
+                description=description,
+                price=0.00,  # vendedor define depois
+                weight=0,
+                status='pendente'
+            )
+
+            Delivery.objects.create(
+                payment_request=payment_request,
+                delivery_status='pendente',
+                delivery_address=cliente.endereco
+            )
+
+            return redirect('customer_main')
+    else:
+        form = CustomerCreateRequestForm()
+
+    return render(request, 'customer_create_request.html', {'form': form})
+

@@ -2,6 +2,10 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import ClienteUser, VendorUser, PaymentRequest, Delivery
 
+class CustomerCreateRequestForm(forms.Form):
+    vendor = forms.ModelChoiceField(queryset=VendorUser.objects.all(), label="Escolha um Vendedor")
+    description = forms.CharField(widget=forms.Textarea, label="Descrição do Pedido")
+
 class LoginForm(forms.Form):
     username = forms.CharField(label="Usuário")
     password = forms.CharField(widget=forms.PasswordInput, label="Senha")
