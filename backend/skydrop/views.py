@@ -243,6 +243,22 @@ def customer_create_request(request):
     if not hasattr(request.user, 'clienteuser'):
         return redirect('home')
 
+    repeat_id = request.GET.get('repeat')
+    initial_data = {}
+
+    # logica para repiter order
+    if repeat_id:
+        try:
+            prev_delivery = Delivery.objects.get(
+                id=repeat_id, payment_request__client=request.user.clienteuser
+            )
+            initial_data = {
+                'vendor': prev_delivery.payment_request.vendor.id,
+                'description': prev_delivery.payment_request.description,
+            }
+        except Delivery.DoesNotExist:
+            pass
+
     if request.method == 'POST':
         form = CustomerCreateRequestForm(request.POST)
         if form.is_valid():
@@ -267,7 +283,7 @@ def customer_create_request(request):
 
             return redirect('customer_main')
     else:
-        form = CustomerCreateRequestForm()
+        form = CustomerCreateRequestForm(initial=initial_data)
 
     return render(request, 'customer_create_request.html', {'form': form})
 

@@ -1,12 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
+
+<div style="margin-bottom: 2em; text-align: center;">
+    <a href="{% url 'customer_create_request' %}">
+        <button style="padding: 0.6em 1.2em; font-size: 1em;">Criar Novo Pedido</button>
+    </a>
+</div>
+
 <h2>Entregas Ativas</h2>
 <ul>
     {% for delivery in active_deliveries %}
-        <li>
-            <a href="{% url 'customer_delivery_detail' delivery.id %}">
-                <strong>{{ delivery.payment_request.vendor.empresa_nome }} - Entrega #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
-            </a>
+        <li style="display: flex; justify-content: space-between; align-items: center;">
+            <span>
+                <a href="{% url 'customer_delivery_detail' delivery.id %}">
+                    <strong>{{ delivery.payment_request.vendor.empresa_nome }} - Entrega #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
+                </a>
+            </span>
         </li>
     {% empty %}
         <li>Nenhuma entrega ativa.</li>
@@ -16,9 +25,14 @@
 <h2>Entregas Passadas</h2>
 <ul>
     {% for delivery in past_deliveries %}
-        <li>
-            <a href="{% url 'customer_delivery_detail' delivery.id %}">
-                <strong>Entrega #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
+        <li style="display: flex; justify-content: space-between; align-items: center;">
+            <span>
+                <a href="{% url 'customer_delivery_detail' delivery.id %}">
+                    <strong>Entrega #{{ delivery.id }}</strong> — {{ delivery.delivery_status|capfirst }}
+                </a>
+            </span>
+            <a href="{% url 'customer_create_request' %}?repeat={{ delivery.id }}">
+                <button style="margin-left: 1em;">Repetir Pedido</button>
             </a>
         </li>
     {% empty %}
@@ -26,9 +40,4 @@
     {% endfor %}
 </ul>
 
-<div style="margin-top: 2em; text-align: center;">
-    <a href="{% url 'customer_create_request' %}">
-        <button style="padding: 0.6em 1.2em; font-size: 1em;">Criar Novo Pedido</button>
-    </a>
-</div>
 {% endblock %}

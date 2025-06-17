@@ -40,6 +40,11 @@
                 <div class="error">Esta entrega foi cancelada.</div>
             {% endif %}
         </form>
+        {% if delivery.delivery_status == "entregue" or delivery.delivery_status == "cancelado" %}
+            <a href="{% url 'customer_create_request' %}?repeat={{ delivery.id }}">
+                <button style="margin-top: 1em;">Repetir Pedido</button>
+            </a>
+        {% endif %}
     </div>
     <div style="flex:1; min-width: 350px;">
         <div id="map" style="height: 400px; width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(34,46,80,0.08);"></div>
